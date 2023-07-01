@@ -1,0 +1,215 @@
+https://betting.begmedia.com/api/v2/me/bets/ended?limit=10&offset=0&embed=Scoreboard&embed=Metagame
+
+x-client:{"auth":"eyJ0eXAiOiJKV1QiLCJhbGciOiJHbG9iYWwuTW9iaWxlLkFwaS5BdXRoLkFwaS5TaGEyNTZBbGdvcml0aG0ifQ.IntcIklwXCI6XCI4OS42NC44OS4yMDNcIixcIlVzZXJJZFwiOjEzNDM3ODM2LFwiU2Vzc2lvblwiOlwiNDY4ODAyMTQwM1wiLFwiQ291bnRyeUNvZGVcIjpcIlBMXCIsXCJMYW5ndWFnZUNvZGVcIjpcInBhXCIsXCJDdXJyZW5jeUNvZGVcIjpcInBsblwiLFwiSXNBZG1pblwiOmZhbHNlLFwiSXNMb2dnZWRGcm9tQm9cIjpmYWxzZSxcIklzTGF1bmNoZXJcIjpmYWxzZSxcIlJlZ3VsYXRvcklkXCI6NyxcIk5vdEJlZm9yZVwiOlwiMjAyMy0wNi0yMFQyMDowMTozOC44NDUwMTk1WlwiLFwiRXhwaXJhdGlvblRpbWVcIjpcIjIwMjMtMDYtMjBUMjI6MDM6MzguODQ1MDE5NVpcIn0i.Be4eZvybdCjHhJjju0mIR1s6cP-waB1hqJHXzVn2O9Y","context":"eyJ0eXAiOiJKV1QiLCJhbGciOiJHbG9iYWwuTW9iaWxlLkFwaS5BdXRoLkFwaS5TaGEyNTZBbGdvcml0aG0ifQ.IntcIkxlZ2lzbGF0aW9uXCI6XCJQbFwiLFwiU2l0ZVwiOlwiUGxQYVwiLFwiTGFuZ3VhZ2VcIjpcIlBhXCIsXCJDaGFubmVsSWRcIjpcIkJldGNsaWNQbFwiLFwiVW5pdmVyc2VcIjpcIlNwb3J0c1wiLFwiTm90QmVmb3JlXCI6XCIyMDIzLTA2LTIwVDIwOjAxOjM4Ljg0NTAxOTVaXCIsXCJFeHBpcmF0aW9uVGltZVwiOlwiMjAyMy0wNi0yMFQyMjowMzozOC44NDUwMTk1WlwifSI.lhr-CWWdi_SN_36WDgenJ6mmDjexw0rfVY3eovoyZbM","expiresIn":7199976}
+accept: application/json, text/plain, */*
+application-type: application/json
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+content-type: application/json
+{
+"bets": [{
+"id": -1,
+"bet_reference": "6491ee4ce1a1fa3eece21773",
+"bet_type": "simple",
+"placed_date_utc": "2023-06-20T18:22:04.201Z",
+"result": "NotSet",
+"odds": 4.0,
+"stake": 17.6,
+"is_freebet": false,
+"cashout_eligibility": true,
+"bet_selections": [{
+"id": 3499945445,
+"odds": 4.0,
+"selection_label": "Polska / Tak",
+"market_label": "Wynik meczu/Obie drużyny zdobędą bramki",
+"match_label": "Mołdawia - Polska",
+"match_id": 3001871297,
+"match_status": "live",
+"match_date_utc": "2023-06-20T18:45:00Z",
+"sport_label": "Piłka nożna",
+"sport_id": 1,
+"competition_label": "El. EURO 2024",
+"is_boosted_odd": false,
+"result": "NotSet",
+"market_id": 3145650090,
+"is_mbb_eligible": false,
+"contestant1": "Mołdawia",
+"contestant2": "Polska",
+"scoreboard": {
+"sport_id": 1,
+"live_id": 3001871297,
+"elapsed_time": 3546,
+"live_display_status": "Running",
+"period": 4,
+"period_type": "SecondHalf",
+"period_full_time": 90,
+"is_restricted": false,
+"current_score": {
+"contestant1": "1",
+"contestant2": "2"
+},
+"current_period_score": {
+"period_index": 0,
+"score": {
+"contestant1": 1,
+"contestant2": 0
+}
+},
+"ended_period_score": [{
+"period_index": 0,
+"score": {
+"contestant1": 0,
+"contestant2": 2
+}
+}]
+},
+"has_live_streaming": true,
+"competition_id": 8403,
+"selection_type": "prematch"
+}],
+"is_editable": true,
+"tax_on_stake": 2.4,
+"winnings": 70.4,
+"cashout_offer": {
+"bet_id": "6491ee4ce1a1fa3eece21773",
+"status": "Suspended",
+"amount": 68.26,
+"cancels_bonus": false
+},
+"metagame": {}
+}, {
+"id": -1,
+"bet_reference": "6491ee3304d73c30bac0e9d3",
+"bet_type": "simple",
+"placed_date_utc": "2023-06-20T18:21:39.198Z",
+"result": "NotSet",
+"odds": 13.0,
+"stake": 8.8,
+"is_freebet": false,
+"cashout_eligibility": false,
+"bet_selections": [{
+"id": 3502134045,
+"odds": 13.0,
+"selection_label": "Tomasz Kędziora",
+"market_label": "Strzelec",
+"match_label": "Mołdawia - Polska",
+"match_id": 3001871297,
+"match_status": "live",
+"match_date_utc": "2023-06-20T18:45:00Z",
+"sport_label": "Piłka nożna",
+"sport_id": 1,
+"competition_label": "El. EURO 2024",
+"is_boosted_odd": false,
+"result": "NotSet",
+"market_id": 3146345195,
+"is_mbb_eligible": false,
+"contestant1": "Mołdawia",
+"contestant2": "Polska",
+"scoreboard": {
+"sport_id": 1,
+"live_id": 3001871297,
+"elapsed_time": 3546,
+"live_display_status": "Running",
+"period": 4,
+"period_type": "SecondHalf",
+"period_full_time": 90,
+"is_restricted": false,
+"current_score": {
+"contestant1": "1",
+"contestant2": "2"
+},
+"current_period_score": {
+"period_index": 0,
+"score": {
+"contestant1": 1,
+"contestant2": 0
+}
+},
+"ended_period_score": [{
+"period_index": 0,
+"score": {
+"contestant1": 0,
+"contestant2": 2
+}
+}]
+},
+"has_live_streaming": true,
+"competition_id": 8403,
+"selection_type": "prematch"
+}],
+"is_editable": true,
+"tax_on_stake": 1.2,
+"winnings": 114.4,
+"metagame": {}
+}, {
+"id": -1,
+"bet_reference": "6491ee23b7b56915820f7304",
+"bet_type": "simple",
+"placed_date_utc": "2023-06-20T18:21:22.887Z",
+"result": "NotSet",
+"odds": 5.0,
+"stake": 8.8,
+"is_freebet": false,
+"cashout_eligibility": true,
+"bet_selections": [{
+"id": 3499945298,
+"odds": 5.0,
+"selection_label": "0 - 1",
+"market_label": "Dokładny wynik",
+"match_label": "Mołdawia - Polska",
+"match_id": 3001871297,
+"match_status": "live",
+"match_date_utc": "2023-06-20T18:45:00Z",
+"sport_label": "Piłka nożna",
+"sport_id": 1,
+"competition_label": "El. EURO 2024",
+"is_boosted_odd": false,
+"result": "NotSet",
+"market_id": 3145650060,
+"is_mbb_eligible": false,
+"contestant1": "Mołdawia",
+"contestant2": "Polska",
+"scoreboard": {
+"sport_id": 1,
+"live_id": 3001871297,
+"elapsed_time": 3546,
+"live_display_status": "Running",
+"period": 4,
+"period_type": "SecondHalf",
+"period_full_time": 90,
+"is_restricted": false,
+"current_score": {
+"contestant1": "1",
+"contestant2": "2"
+},
+"current_period_score": {
+"period_index": 0,
+"score": {
+"contestant1": 1,
+"contestant2": 0
+}
+},
+"ended_period_score": [{
+"period_index": 0,
+"score": {
+"contestant1": 0,
+"contestant2": 2
+}
+}]
+},
+"has_live_streaming": true,
+"competition_id": 8403,
+"selection_type": "prematch"
+}],
+"is_editable": true,
+"tax_on_stake": 1.2,
+"winnings": 44.0,
+"cashout_offer": {
+"bet_id": "6491ee23b7b56915820f7304",
+"status": "Suspended",
+"amount": 42.66,
+"cancels_bonus": false
+},
+"metagame": {}
+}]
+}

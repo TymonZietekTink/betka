@@ -1,0 +1,43 @@
+https://apif.begmedia.com/api/v1/account/auth/logins POST
+x-client: {"auth":"eyJ0eXAiOiJKV1QiLCJhbGciOiJHbG9iYWwuTW9iaWxlLkFwaS5BdXRoLkFwaS5TaGEyNTZBbGdvcml0aG0ifQ.IntcIklwXCI6XCI4OS42NC44OS4yMDNcIixcIlVzZXJJZFwiOjAsXCJTZXNzaW9uXCI6bnVsbCxcIkNvdW50cnlDb2RlXCI6bnVsbCxcIkxhbmd1YWdlQ29kZVwiOm51bGwsXCJDdXJyZW5jeUNvZGVcIjpudWxsLFwiSXNBZG1pblwiOmZhbHNlLFwiSXNMb2dnZWRGcm9tQm9cIjpmYWxzZSxcIklzTGF1bmNoZXJcIjpmYWxzZSxcIlJlZ3VsYXRvcklkXCI6LTEsXCJOb3RCZWZvcmVcIjpcIjIwMjMtMDYtMjBUMjA6MDE6MTUuMDc1NjE4MVpcIixcIkV4cGlyYXRpb25UaW1lXCI6XCIyMDIzLTA2LTIwVDIyOjAzOjE1LjA3NTYxODFaXCJ9Ig.GCGSa5W9C4GgODppBd6A5Rv8EHSJUYbO-Cai425_UiI","context":"eyJ0eXAiOiJKV1QiLCJhbGciOiJHbG9iYWwuTW9iaWxlLkFwaS5BdXRoLkFwaS5TaGEyNTZBbGdvcml0aG0ifQ.IntcIkxlZ2lzbGF0aW9uXCI6XCJQbFwiLFwiU2l0ZVwiOlwicGxwYVwiLFwiTGFuZ3VhZ2VcIjpcInBhXCIsXCJDaGFubmVsSWRcIjpcIkJldGNsaWNQbFwiLFwiVW5pdmVyc2VcIjpcIlNwb3J0c1wiLFwiTm90QmVmb3JlXCI6XCIyMDIzLTA2LTIwVDIwOjAxOjE1LjA3NTYxODFaXCIsXCJFeHBpcmF0aW9uVGltZVwiOlwiMjAyMy0wNi0yMFQyMDoyMzoxNS4wNzU2MTgxWlwifSI.xxLrVpv0HUGx9x0uxQH9yzxeBSCkqAlg7XabuGgFziY","expiresIn":7198982}
+accept: application/json, text/plain, */*
+application-type: application/json
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+{
+"login": "tymon.zietek@gmail.com",
+"password": "Emsioli90",
+"fingerprint": "25ccb1b3-f3b2-454f-8af6-8c9fda8f8e99",
+"client_info": {
+"application": "BETCLIC.PL",
+"universe": "sport",
+"channel": "WEB_BETCLIC.PL"
+}
+}
+content-type: application/json; charset=utf-8
+x-correlation-id: 800b93b4-0001-ed00-b63f-84710c7967bb
+
+{
+"id": "d38611dd-f45d-4ff3-884a-353683918438",
+"status": "Validated",
+"login": "tymon.zietek@gmail.com",
+"account": {
+"id": 13437836,
+"login": "olizet",
+"currency": "pln",
+"country": "PL",
+"segment": "4 ",
+"first_login_congratulation": false,
+"firstname": "Tymon",
+"last_logon_date": "2023-06-20T18:20:16.257Z",
+"language": "pa",
+"culture": "en-GB",
+"is_restricted_access": false
+},
+"token": {
+"auth": "eyJ0eXAiOiJKV1QiLCJhbGciOiJHbG9iYWwuTW9iaWxlLkFwaS5BdXRoLkFwaS5TaGEyNTZBbGdvcml0aG0ifQ.IntcdTAwMjJJcFx1MDAyMjpcdTAwMjI4OS42NC44OS4yMDNcdTAwMjIsXHUwMDIyU2Vzc2lvblx1MDAyMjpcdTAwMjI0Njg4MDIxNDAzXHUwMDIyLFx1MDAyMlVzZXJJZFx1MDAyMjoxMzQzNzgzNixcdTAwMjJDb3VudHJ5Q29kZVx1MDAyMjpcdTAwMjJQTFx1MDAyMixcdTAwMjJMYW5ndWFnZUNvZGVcdTAwMjI6XHUwMDIycGFcdTAwMjIsXHUwMDIyQ3VycmVuY3lDb2RlXHUwMDIyOlx1MDAyMnBsblx1MDAyMixcdTAwMjJJc0FkbWluXHUwMDIyOmZhbHNlLFx1MDAyMklzTG9nZ2VkRnJvbUJvXHUwMDIyOmZhbHNlLFx1MDAyMklzTGF1bmNoZXJcdTAwMjI6ZmFsc2UsXHUwMDIyUmVndWxhdG9ySWRcdTAwMjI6NyxcdTAwMjJOb3RCZWZvcmVcdTAwMjI6XHUwMDIyMjAyMy0wNi0yMFQyMDowMTozOC4xNzE4NzI1Wlx1MDAyMixcdTAwMjJFeHBpcmF0aW9uVGltZVx1MDAyMjpcdTAwMjIyMDIzLTA2LTIwVDIyOjAzOjM4LjE3MTkxMDFaXHUwMDIyfSI.mltDlQq6SZWsO5qDtn_rG9x8lENdpA2Q4t1NRK3G8cU",
+"context": "eyJ0eXAiOiJKV1QiLCJhbGciOiJHbG9iYWwuTW9iaWxlLkFwaS5BdXRoLkFwaS5TaGEyNTZBbGdvcml0aG0ifQ.IntcdTAwMjJMZWdpc2xhdGlvblx1MDAyMjpcdTAwMjJQbFx1MDAyMixcdTAwMjJTaXRlXHUwMDIyOlx1MDAyMnBscGFcdTAwMjIsXHUwMDIyTGFuZ3VhZ2VcdTAwMjI6XHUwMDIycGFcdTAwMjIsXHUwMDIyQ2hhbm5lbElkXHUwMDIyOlx1MDAyMkJldGNsaWNQbFx1MDAyMixcdTAwMjJVbml2ZXJzZVx1MDAyMjpcdTAwMjJTcG9ydHNcdTAwMjIsXHUwMDIyTm90QmVmb3JlXHUwMDIyOlx1MDAyMjIwMjMtMDYtMjBUMjA6MDE6MzguMTcxODcyNVpcdTAwMjIsXHUwMDIyRXhwaXJhdGlvblRpbWVcdTAwMjI6XHUwMDIyMjAyMy0wNi0yMFQyMjowMzozOC4xNzIwMDQ4Wlx1MDAyMn0i.zlhUEE7apZKPZIr339GcNG465NQV_c2lmJ8WQQmQFOk",
+"expires": 7200
+},
+"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0Njg4MDIxNDAzIiwic3ViIjoiMTM0Mzc4MzYiLCJsYW5nIjoicGEiLCJjdXIiOiJwbG4iLCJuYmYiOjE2ODcyOTEyOTgsImV4cCI6MTY4NzI5ODYxOCwiaXNzIjoiYmV0Y2xpYy51bmRlZmluZWQifQ.39rTI0u7npCF0i3tLDaCm1MwtOiU4akm-kFwnMh3bNM"
+}
