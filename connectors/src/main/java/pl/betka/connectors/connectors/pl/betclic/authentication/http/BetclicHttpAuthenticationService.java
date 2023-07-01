@@ -10,16 +10,11 @@ import lombok.SneakyThrows;
 import org.apache.hc.client5.http.classic.HttpClient;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.impl.classic.BasicHttpClientResponseHandler;
-import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.ClassicHttpRequest;
-import org.apache.hc.core5.http.HttpRequest;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 import pl.betka.connectors.ConnectorsConfiguration;
-import pl.betka.connectors.connectors.pl.betclic.common.BetclicConstants;
-import pl.betka.domain.AuthenticationResponse;
-import pl.betka.domain.AuthenticationStatus;
 import pl.betka.connectors.common.exceptions.AuthenticationException;
 import pl.betka.connectors.common.process.AuthenticatorService;
 import pl.betka.connectors.connectors.pl.betclic.authentication.http.entity.Digest;
@@ -27,8 +22,11 @@ import pl.betka.connectors.connectors.pl.betclic.authentication.http.request.Bir
 import pl.betka.connectors.connectors.pl.betclic.authentication.http.request.BirtDateDigestRequest.Parameter;
 import pl.betka.connectors.connectors.pl.betclic.authentication.http.request.LoginRequest;
 import pl.betka.connectors.connectors.pl.betclic.authentication.http.response.LoginResponse;
+import pl.betka.connectors.connectors.pl.betclic.common.BetclicConstants;
 import pl.betka.connectors_configuration.AuthenticationData;
 import pl.betka.connectors_configuration.pl.betclic.BetclicHttpAuthenticationData;
+import pl.betka.domain.AuthenticationResponse;
+import pl.betka.domain.AuthenticationStatus;
 
 @Import(ConnectorsConfiguration.class)
 @Component

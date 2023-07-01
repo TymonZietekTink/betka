@@ -1,7 +1,6 @@
 package pl.betka.connectors.connectors.pl.etoto.authentication.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.net.URI;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.apache.hc.client5.http.classic.HttpClient;
@@ -10,12 +9,12 @@ import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 import pl.betka.connectors.ConnectorsConfiguration;
 import pl.betka.connectors.common.http.StandardResponseHandler;
-import pl.betka.connectors_configuration.AuthenticationData;
-import pl.betka.domain.AuthenticationResponse;
-import pl.betka.domain.AuthenticationStatus;
 import pl.betka.connectors.common.process.AuthenticatorService;
 import pl.betka.connectors.connectors.pl.etoto.authentication.http.request.LoginRequest;
+import pl.betka.connectors_configuration.AuthenticationData;
 import pl.betka.connectors_configuration.pl.etoto.EtotoHttpAuthenticationData;
+import pl.betka.domain.AuthenticationResponse;
+import pl.betka.domain.AuthenticationStatus;
 
 @Component
 @RequiredArgsConstructor

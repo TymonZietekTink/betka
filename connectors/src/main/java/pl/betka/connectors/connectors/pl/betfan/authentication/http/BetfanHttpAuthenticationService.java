@@ -2,31 +2,26 @@ package pl.betka.connectors.connectors.pl.betfan.authentication.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URI;
-import java.util.Arrays;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.apache.hc.client5.http.classic.HttpClient;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
-import org.apache.hc.client5.http.impl.classic.BasicHttpClientResponseHandler;
 import org.apache.hc.core5.http.ClassicHttpRequest;
 import org.apache.hc.core5.http.ClassicHttpResponse;
-import org.apache.hc.core5.http.Header;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.io.entity.StringEntity;
-import org.apache.hc.core5.http.message.BasicHeader;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 import pl.betka.connectors.ConnectorsConfiguration;
-import pl.betka.connectors.common.http.StandardResponseHandler;
-import pl.betka.connectors_configuration.AuthenticationData;
-import pl.betka.domain.AuthenticationResponse;
-import pl.betka.domain.AuthenticationStatus;
 import pl.betka.connectors.common.exceptions.AuthenticationException;
+import pl.betka.connectors.common.http.StandardResponseHandler;
 import pl.betka.connectors.common.process.AuthenticatorService;
 import pl.betka.connectors.connectors.pl.betfan.authentication.http.request.LoginRequest;
 import pl.betka.connectors.connectors.pl.betfan.authentication.http.response.LoginResponse;
+import pl.betka.connectors_configuration.AuthenticationData;
 import pl.betka.connectors_configuration.pl.betfan.BetfanHttpAuthenticationData;
+import pl.betka.domain.AuthenticationResponse;
+import pl.betka.domain.AuthenticationStatus;
 
 @Component
 @RequiredArgsConstructor
