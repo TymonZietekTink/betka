@@ -1,6 +1,7 @@
 package pl.betka.connectors.connectors.pl.betclic.authentication.http.request;
 
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Builder

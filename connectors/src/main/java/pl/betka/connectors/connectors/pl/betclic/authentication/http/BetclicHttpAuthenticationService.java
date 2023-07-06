@@ -4,6 +4,7 @@ import static pl.betka.connectors.connectors.pl.betclic.common.BetclicConstants.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URI;
+import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Component;
 import pl.betka.connectors.ConnectorsConfiguration;
 import pl.betka.connectors.common.exceptions.AuthenticationException;
 import pl.betka.connectors.common.process.AuthenticatorService;
+import pl.betka.connectors.common.utils.RandomValuesProvider;
 import pl.betka.connectors.connectors.pl.betclic.authentication.http.entity.Digest;
 import pl.betka.connectors.connectors.pl.betclic.authentication.http.request.BirtDateDigestRequest;
 import pl.betka.connectors.connectors.pl.betclic.authentication.http.request.BirtDateDigestRequest.Parameter;
@@ -34,7 +36,7 @@ import pl.betka.domain.AuthenticationStatus;
 public class BetclicHttpAuthenticationService implements AuthenticatorService {
   private final HttpClient httpClient;
   private final ObjectMapper objectMapper;
-  private final String host;
+  private final RandomValuesProvider randomValuesProvider;
   private BetclicHttpAuthenticationData authData;
 
   @Override
@@ -42,22 +44,22 @@ public class BetclicHttpAuthenticationService implements AuthenticatorService {
     return BetclicConstants.HTTP_IDENTIFIER;
   }
 
+  @SneakyThrows
   @Override
   public AuthenticationResponse authenticate(AuthenticationData authenticationData) {
     authData = (BetclicHttpAuthenticationData) authenticationData;
     if (authData.getFingerprint() == null) {
-      authData.setFingerprint(UUID.randomUUID().toString());
+      authData.setFingerprint(randomValuesProvider.generateUUID().toString());
     }
 
     var loginResponse = login();
     if (loginResponse.getLoginStatus().equals("DigestsToValidate")) {
       loginResponse = loginWithDigest(loginResponse);
     }
-    if (loginResponse.getLoginStatus() != "Validated") {
+    if (!"Validated".equals(loginResponse.getLoginStatus())) {
       throw new AuthenticationException("Login is not validated");
     }
-    String token = loginResponse.getToken().getAuth() + loginResponse.getToken().getContext();
-    authData.setToken(token);
+    authData.setToken(objectMapper.writer().writeValueAsString(loginResponse.getToken()));
     return AuthenticationResponse.builder()
         .authenticationStatus(AuthenticationStatus.AUTHENTICATED)
         .authData(authData)
@@ -68,7 +70,7 @@ public class BetclicHttpAuthenticationService implements AuthenticatorService {
   private LoginResponse login() {
     LoginRequest loginCredentials = LoginRequest.buildDefaultLoginRequest(authData);
     var loginRequestBody = objectMapper.writer().writeValueAsString(loginCredentials);
-    var loginRequest = buildRequest(loginRequestBody, host + "api/v1/account/auth/logins");
+    var loginRequest = buildRequest(loginRequestBody, "https://apif.begmedia.com/api/v1/account/auth/logins");
     var loginResponse = httpClient.execute(loginRequest, new BasicHttpClientResponseHandler());
     return objectMapper.readValue(loginResponse, LoginResponse.class);
   }
@@ -84,7 +86,7 @@ public class BetclicHttpAuthenticationService implements AuthenticatorService {
             .digestId(digest.getDigestId())
             .parameters(new Parameter(authData.getDateOfBirth()))
             .build();
-    var requestBody = objectMapper.writer().writeValueAsString(birtDateDigestRequest);
+    var requestBody = objectMapper.writer().writeValueAsString(List.of(birtDateDigestRequest));
     var path = HOST_PATH + loginResponse.getLoginRequestId() + "/digests";
     var request = buildRequest(requestBody, path);
     var response = httpClient.execute(request, new BasicHttpClientResponseHandler());
@@ -93,7 +95,7 @@ public class BetclicHttpAuthenticationService implements AuthenticatorService {
 
   @SneakyThrows
   private static ClassicHttpRequest buildRequest(String body, String uri) {
-    HttpPost httpPost = new HttpPost(new URI(uri));
+    HttpPost httpPost = new HttpPost(uri);
     httpPost.setHeader("Content-Type", "application/json");
     httpPost.setHeader(           "User-Agent",
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
