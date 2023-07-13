@@ -8,12 +8,12 @@ import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 import pl.betka.connectors.ConnectorsConfiguration;
+import pl.betka.connectors.common.domain.authentication.AuthenticationResponse;
 import pl.betka.connectors.common.http.StandardResponseHandler;
 import pl.betka.connectors.common.process.authentication.AuthenticatorService;
 import pl.betka.connectors.connectors.pl.etoto.authentication.http.request.LoginRequest;
-import pl.betka.connectors_configuration.AuthenticationData;
-import pl.betka.connectors_configuration.pl.etoto.EtotoHttpAuthenticationData;
-import pl.betka.connectors.common.domain.authentication.AuthenticationResponse;
+import pl.betka.connectors_configuration.UserInfo;
+import pl.betka.connectors_configuration.pl.etoto.EtotoUserInfo;
 import pl.betka.domain.AuthenticationStatus;
 
 @Component
@@ -22,14 +22,12 @@ import pl.betka.domain.AuthenticationStatus;
 public class EtotoHttpAuthenticationService implements AuthenticatorService {
   private final HttpClient httpClient;
   private final ObjectMapper objectMapper = new ObjectMapper();
-  private EtotoHttpAuthenticationData authData;
-
+  private EtotoUserInfo authData;
 
   @Override
   @SneakyThrows
-  public AuthenticationResponse authenticate(
-      AuthenticationData authenticationData) {
-    authData = (EtotoHttpAuthenticationData) authenticationData;
+  public AuthenticationResponse authenticate(UserInfo authenticationData) {
+    authData = (EtotoUserInfo) authenticationData;
     LoginRequest loginRequest = new LoginRequest(authData.getUsername(), authData.getPassword());
     String loginRequestAsString = objectMapper.writer().writeValueAsString(loginRequest);
     HttpPost httpPost = new HttpPost("https://api.etoto.pl/rest/customer/session/login");

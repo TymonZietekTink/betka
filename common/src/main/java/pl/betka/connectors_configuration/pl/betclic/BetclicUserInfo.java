@@ -4,13 +4,13 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import pl.betka.connectors_configuration.AuthenticationData;
+import pl.betka.connectors_configuration.UserInfo;
 
 @Getter
 @Setter
 @Builder
 @EqualsAndHashCode
-public class BetclicHttpAuthenticationData implements AuthenticationData {
+public class BetclicUserInfo implements UserInfo {
   private String fingerprint;
   private String token;
   private String username;

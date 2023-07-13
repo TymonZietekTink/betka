@@ -14,29 +14,29 @@ import lombok.SneakyThrows;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 import pl.betka.connectors.ConnectorsConfiguration;
+import pl.betka.connectors.common.domain.authentication.AuthenticationResponse;
 import pl.betka.connectors.common.exceptions.AuthenticationException;
 import pl.betka.connectors.common.process.authentication.AuthenticatorService;
-import pl.betka.connectors_configuration.AuthenticationData;
-import pl.betka.connectors_configuration.pl.fortuna.FortunaWebAuthenticationData;
-import pl.betka.connectors.common.domain.authentication.AuthenticationResponse;
+import pl.betka.connectors_configuration.UserInfo;
+import pl.betka.connectors_configuration.pl.fortuna.FortunaUserInfo;
 import pl.betka.domain.AuthenticationStatus;
 
 @Component
 @RequiredArgsConstructor
 @Import(ConnectorsConfiguration.class)
 public class FortunaWebScrapingAuthenticationService implements AuthenticatorService {
-  private FortunaWebAuthenticationData authData;
+  private FortunaUserInfo authData;
 
   @Override
-  public AuthenticationResponse authenticate(AuthenticationData authenticationData) {
-    authData = (FortunaWebAuthenticationData) authenticationData;
+  public AuthenticationResponse authenticate(UserInfo authenticationData) {
+    authData = (FortunaUserInfo) authenticationData;
     Cookie authTokenWebCookie;
     try (Playwright playwright = Playwright.create()) {
       var browser =
           playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
       var context = browser.newContext();
       var page = context.newPage();
-      authTokenWebCookie = login(context,page);
+      authTokenWebCookie = login(context, page);
     }
     var cookie = convertCookie(authTokenWebCookie);
     authData.setToken(cookie);
@@ -47,7 +47,7 @@ public class FortunaWebScrapingAuthenticationService implements AuthenticatorSer
   }
 
   @SneakyThrows
-  public Cookie login(BrowserContext context, Page page){
+  public Cookie login(BrowserContext context, Page page) {
     page.navigate("https://www.efortuna.pl/");
     acceptCookies(page);
     clickLoginButton(page);
@@ -68,8 +68,8 @@ public class FortunaWebScrapingAuthenticationService implements AuthenticatorSer
   }
 
   private void waitForInputForm(Locator locator) {
-    for(int i = 0; i<5; i++){
-     if(!locator.isHidden()){
+    for (int i = 0; i < 5; i++) {
+      if (!locator.isHidden()) {
         return;
       }
     }
@@ -92,9 +92,10 @@ public class FortunaWebScrapingAuthenticationService implements AuthenticatorSer
   }
 
   private Cookie waitForTokenCookie(BrowserContext context) {
-    for(int i = 0; i<5; i++){
-      Optional<Cookie> tokenCookie = context.cookies().stream().filter(cookie -> "auth_token".equals(cookie.name)).findFirst();
-      if(tokenCookie.isPresent()){
+    for (int i = 0; i < 5; i++) {
+      Optional<Cookie> tokenCookie =
+          context.cookies().stream().filter(cookie -> "auth_token".equals(cookie.name)).findFirst();
+      if (tokenCookie.isPresent()) {
         return tokenCookie.get();
       }
     }

@@ -3,7 +3,7 @@ package pl.betka.connectors.connectors.pl.betclic.authentication.http.request;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
-import pl.betka.connectors_configuration.pl.betclic.BetclicHttpAuthenticationData;
+import pl.betka.connectors_configuration.pl.betclic.BetclicUserInfo;
 
 @Getter
 @Builder
@@ -24,7 +24,7 @@ public class LoginRequest {
     private String channel;
   }
 
-  public static LoginRequest buildDefaultLoginRequest(BetclicHttpAuthenticationData data) {
+  public static LoginRequest buildDefaultLoginRequest(BetclicUserInfo data) {
     return LoginRequest.builder()
         .fingerprint(data.getFingerprint())
         .username(data.getUsername())

@@ -11,7 +11,7 @@ import pl.betka.connectors.common.domain.fetching.FetchResponse;
 import pl.betka.connectors.connectors.pl.betclic.fetching.http.BetclicHttpFetchService;
 import pl.betka.connectors.integration.HttpAuthenticationConfig;
 import pl.betka.connectors.integration.IntegrationTestBase;
-import pl.betka.connectors_configuration.pl.betclic.BetclicHttpAuthenticationData;
+import pl.betka.connectors_configuration.pl.betclic.BetclicFetchingInputData;
 import pl.betka.domain.FetchStatus;
 
 @SpringBootTest
@@ -34,13 +34,7 @@ public class BetclicHttpFetchServiceTest extends IntegrationTestBase {
   @Test
   public void happy_path_fetching_transactions() {
     wireMockServer.setScenarioState("fetching-transaction","first_page");
-    BetclicHttpAuthenticationData data =
-        BetclicHttpAuthenticationData.builder()
-            .username(USERNAME)
-            .password(PASSWORD)
-            .dateOfBirth(DATE_OF_BIRTH)
-            .token(AUTH_TOKEN)
-            .build();
+    BetclicFetchingInputData data = new BetclicFetchingInputData(AUTH_TOKEN);
 
     // when
     FetchResponse result = service.fetchTransactions(data);

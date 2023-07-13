@@ -11,7 +11,7 @@ import pl.betka.connectors.common.domain.authentication.AuthenticationResponse;
 import pl.betka.connectors.connectors.pl.betclic.authentication.http.BetclicHttpAuthenticationService;
 import pl.betka.connectors.integration.HttpAuthenticationConfig;
 import pl.betka.connectors.integration.IntegrationTestBase;
-import pl.betka.connectors_configuration.pl.betclic.BetclicHttpAuthenticationData;
+import pl.betka.connectors_configuration.pl.betclic.BetclicUserInfo;
 import pl.betka.domain.AuthenticationStatus;
 
 @SpringBootTest
@@ -34,8 +34,8 @@ public class BetclicHttpAuthenticationServiceTest extends IntegrationTestBase {
   @Test
   public void happy_path_register_device() {
     wireMockServer.setScenarioState("authentication-with-registration","started");
-    BetclicHttpAuthenticationData data =
-        BetclicHttpAuthenticationData.builder()
+    BetclicUserInfo data =
+        BetclicUserInfo.builder()
             .username(USERNAME)
             .password(PASSWORD)
             .dateOfBirth(DATE_OF_BIRTH)
@@ -46,15 +46,15 @@ public class BetclicHttpAuthenticationServiceTest extends IntegrationTestBase {
 
     // then
     assertThat(result.getAuthenticationStatus()).isEqualTo(AuthenticationStatus.AUTHENTICATED);
-    assertThat((BetclicHttpAuthenticationData) result.getAuthData())
+    assertThat((BetclicUserInfo) result.getAuthData())
         .isEqualTo(createExpectedAuthData(NEW_FINGERPRINT));
   }
 
   @Test
   public void happy_path_login_with_registered_device(){
     wireMockServer.setScenarioState("authentication-with-registered-device","started");
-    BetclicHttpAuthenticationData data =
-        BetclicHttpAuthenticationData.builder()
+    BetclicUserInfo data =
+        BetclicUserInfo.builder()
             .username(USERNAME)
             .password(PASSWORD)
             .dateOfBirth(DATE_OF_BIRTH)
@@ -66,12 +66,12 @@ public class BetclicHttpAuthenticationServiceTest extends IntegrationTestBase {
 
     // then
     assertThat(result.getAuthenticationStatus()).isEqualTo(AuthenticationStatus.AUTHENTICATED);
-    assertThat((BetclicHttpAuthenticationData) result.getAuthData())
+    assertThat((BetclicUserInfo) result.getAuthData())
         .isEqualTo(createExpectedAuthData(STORED_FINGERPRINT));
   }
 
-  private BetclicHttpAuthenticationData createExpectedAuthData(String fingerPrint) {
-    return BetclicHttpAuthenticationData.builder()
+  private BetclicUserInfo createExpectedAuthData(String fingerPrint) {
+    return BetclicUserInfo.builder()
         .username(USERNAME)
         .password(PASSWORD)
         .dateOfBirth(DATE_OF_BIRTH)

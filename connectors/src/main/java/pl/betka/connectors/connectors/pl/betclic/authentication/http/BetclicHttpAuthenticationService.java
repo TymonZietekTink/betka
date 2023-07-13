@@ -1,7 +1,5 @@
 package pl.betka.connectors.connectors.pl.betclic.authentication.http;
 
-import static pl.betka.connectors.connectors.pl.betclic.common.BetclicConstants.AUTH_HOST_PATH;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +10,7 @@ import org.apache.hc.client5.http.impl.classic.BasicHttpClientResponseHandler;
 import org.apache.hc.core5.http.ClassicHttpRequest;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.springframework.stereotype.Component;
+import pl.betka.connectors.common.domain.authentication.AuthenticationResponse;
 import pl.betka.connectors.common.exceptions.AuthenticationException;
 import pl.betka.connectors.common.process.authentication.AuthenticatorService;
 import pl.betka.connectors.common.utils.RandomValuesProvider;
@@ -21,18 +20,19 @@ import pl.betka.connectors.connectors.pl.betclic.authentication.http.request.Bir
 import pl.betka.connectors.connectors.pl.betclic.authentication.http.request.LoginRequest;
 import pl.betka.connectors.connectors.pl.betclic.authentication.http.response.LoginResponse;
 import pl.betka.connectors.connectors.pl.betclic.common.BetclicConstants;
-import pl.betka.connectors_configuration.AuthenticationData;
-import pl.betka.connectors_configuration.pl.betclic.BetclicHttpAuthenticationData;
-import pl.betka.connectors.common.domain.authentication.AuthenticationResponse;
+import pl.betka.connectors_configuration.UserInfo;
+import pl.betka.connectors_configuration.pl.betclic.BetclicUserInfo;
 import pl.betka.domain.AuthenticationStatus;
 
 @Component
 @RequiredArgsConstructor
 public class BetclicHttpAuthenticationService implements AuthenticatorService {
+  private static final String HOST = "https://apif.begmedia.com/";
+
   private final HttpClient httpClient;
   private final ObjectMapper objectMapper;
   private final RandomValuesProvider randomValuesProvider;
-  private BetclicHttpAuthenticationData authData;
+  private BetclicUserInfo authData;
 
   @Override
   public String getIdentifier() {
@@ -41,8 +41,8 @@ public class BetclicHttpAuthenticationService implements AuthenticatorService {
 
   @SneakyThrows
   @Override
-  public AuthenticationResponse authenticate(AuthenticationData authenticationData) {
-    authData = (BetclicHttpAuthenticationData) authenticationData;
+  public AuthenticationResponse authenticate(UserInfo authenticationData) {
+    authData = (BetclicUserInfo) authenticationData;
     if (authData.getFingerprint() == null) {
       authData.setFingerprint(randomValuesProvider.generateUUID().toString());
     }
@@ -65,7 +65,7 @@ public class BetclicHttpAuthenticationService implements AuthenticatorService {
   private LoginResponse login() {
     LoginRequest loginCredentials = LoginRequest.buildDefaultLoginRequest(authData);
     var loginRequestBody = objectMapper.writer().writeValueAsString(loginCredentials);
-    var loginRequest = buildRequest(loginRequestBody, "https://apif.begmedia.com/api/v1/account/auth/logins");
+    var loginRequest = buildRequest(loginRequestBody, HOST + "api/v1/account/auth/logins");
     var loginResponse = httpClient.execute(loginRequest, new BasicHttpClientResponseHandler());
     return objectMapper.readValue(loginResponse, LoginResponse.class);
   }
@@ -82,7 +82,7 @@ public class BetclicHttpAuthenticationService implements AuthenticatorService {
             .parameters(new Parameter(authData.getDateOfBirth()))
             .build();
     var requestBody = objectMapper.writer().writeValueAsString(List.of(birtDateDigestRequest));
-    var path = AUTH_HOST_PATH + loginResponse.getLoginRequestId() + "/digests";
+    var path = HOST + loginResponse.getLoginRequestId() + "/digests";
     var request = buildRequest(requestBody, path);
     var response = httpClient.execute(request, new BasicHttpClientResponseHandler());
     return objectMapper.readValue(response, LoginResponse.class);
@@ -92,8 +92,7 @@ public class BetclicHttpAuthenticationService implements AuthenticatorService {
   private static ClassicHttpRequest buildRequest(String body, String uri) {
     HttpPost httpPost = new HttpPost(uri);
     httpPost.setHeader("Content-Type", "application/json");
-    httpPost.setHeader(           "User-Agent",
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+    httpPost.setHeader("User-Agent", BetclicConstants.USER_AGENT);
     httpPost.setHeader("Accept", "*/*");
     httpPost.setEntity(new StringEntity(body));
     return httpPost;
