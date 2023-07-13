@@ -15,12 +15,12 @@ import org.springframework.stereotype.Component;
 import pl.betka.connectors.ConnectorsConfiguration;
 import pl.betka.connectors.common.exceptions.AuthenticationException;
 import pl.betka.connectors.common.http.StandardResponseHandler;
-import pl.betka.connectors.common.process.AuthenticatorService;
+import pl.betka.connectors.common.process.authentication.AuthenticatorService;
 import pl.betka.connectors.connectors.pl.betfan.authentication.http.request.LoginRequest;
 import pl.betka.connectors.connectors.pl.betfan.authentication.http.response.LoginResponse;
 import pl.betka.connectors_configuration.AuthenticationData;
 import pl.betka.connectors_configuration.pl.betfan.BetfanHttpAuthenticationData;
-import pl.betka.domain.AuthenticationResponse;
+import pl.betka.connectors.common.domain.authentication.AuthenticationResponse;
 import pl.betka.domain.AuthenticationStatus;
 
 @Component

@@ -1,11 +1,9 @@
 package pl.betka.connectors.connectors.pl.betclic.authentication.http;
 
-import static pl.betka.connectors.connectors.pl.betclic.common.BetclicConstants.HOST_PATH;
+import static pl.betka.connectors.connectors.pl.betclic.common.BetclicConstants.AUTH_HOST_PATH;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.net.URI;
 import java.util.List;
-import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.apache.hc.client5.http.classic.HttpClient;
@@ -13,11 +11,9 @@ import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.impl.classic.BasicHttpClientResponseHandler;
 import org.apache.hc.core5.http.ClassicHttpRequest;
 import org.apache.hc.core5.http.io.entity.StringEntity;
-import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
-import pl.betka.connectors.ConnectorsConfiguration;
 import pl.betka.connectors.common.exceptions.AuthenticationException;
-import pl.betka.connectors.common.process.AuthenticatorService;
+import pl.betka.connectors.common.process.authentication.AuthenticatorService;
 import pl.betka.connectors.common.utils.RandomValuesProvider;
 import pl.betka.connectors.connectors.pl.betclic.authentication.http.entity.Digest;
 import pl.betka.connectors.connectors.pl.betclic.authentication.http.request.BirtDateDigestRequest;
@@ -27,10 +23,9 @@ import pl.betka.connectors.connectors.pl.betclic.authentication.http.response.Lo
 import pl.betka.connectors.connectors.pl.betclic.common.BetclicConstants;
 import pl.betka.connectors_configuration.AuthenticationData;
 import pl.betka.connectors_configuration.pl.betclic.BetclicHttpAuthenticationData;
-import pl.betka.domain.AuthenticationResponse;
+import pl.betka.connectors.common.domain.authentication.AuthenticationResponse;
 import pl.betka.domain.AuthenticationStatus;
 
-@Import(ConnectorsConfiguration.class)
 @Component
 @RequiredArgsConstructor
 public class BetclicHttpAuthenticationService implements AuthenticatorService {
@@ -87,7 +82,7 @@ public class BetclicHttpAuthenticationService implements AuthenticatorService {
             .parameters(new Parameter(authData.getDateOfBirth()))
             .build();
     var requestBody = objectMapper.writer().writeValueAsString(List.of(birtDateDigestRequest));
-    var path = HOST_PATH + loginResponse.getLoginRequestId() + "/digests";
+    var path = AUTH_HOST_PATH + loginResponse.getLoginRequestId() + "/digests";
     var request = buildRequest(requestBody, path);
     var response = httpClient.execute(request, new BasicHttpClientResponseHandler());
     return objectMapper.readValue(response, LoginResponse.class);

@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
+import pl.betka.connectors.common.process.fetching.TicketMapper;
 import pl.betka.connectors.common.utils.RandomValuesProvider;
 import pl.betka.connectors.common.utils.StandardRandomValuesProvider;
 

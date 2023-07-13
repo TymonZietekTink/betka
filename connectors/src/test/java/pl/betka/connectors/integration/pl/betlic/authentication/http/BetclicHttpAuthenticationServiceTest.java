@@ -1,19 +1,17 @@
 package pl.betka.connectors.integration.pl.betlic.authentication.http;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.github.tomakehurst.wiremock.WireMockServer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
-import pl.betka.connectors.integration.HttpAuthenticationConfig;
+import pl.betka.connectors.common.domain.authentication.AuthenticationResponse;
 import pl.betka.connectors.connectors.pl.betclic.authentication.http.BetclicHttpAuthenticationService;
+import pl.betka.connectors.integration.HttpAuthenticationConfig;
 import pl.betka.connectors.integration.IntegrationTestBase;
 import pl.betka.connectors_configuration.pl.betclic.BetclicHttpAuthenticationData;
-import pl.betka.domain.AuthenticationResponse;
 import pl.betka.domain.AuthenticationStatus;
 
 @SpringBootTest

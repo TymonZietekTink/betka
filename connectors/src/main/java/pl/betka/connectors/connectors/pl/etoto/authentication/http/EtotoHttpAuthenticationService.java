@@ -9,11 +9,11 @@ import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 import pl.betka.connectors.ConnectorsConfiguration;
 import pl.betka.connectors.common.http.StandardResponseHandler;
-import pl.betka.connectors.common.process.AuthenticatorService;
+import pl.betka.connectors.common.process.authentication.AuthenticatorService;
 import pl.betka.connectors.connectors.pl.etoto.authentication.http.request.LoginRequest;
 import pl.betka.connectors_configuration.AuthenticationData;
 import pl.betka.connectors_configuration.pl.etoto.EtotoHttpAuthenticationData;
-import pl.betka.domain.AuthenticationResponse;
+import pl.betka.connectors.common.domain.authentication.AuthenticationResponse;
 import pl.betka.domain.AuthenticationStatus;
 
 @Component

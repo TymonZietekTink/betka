@@ -15,10 +15,10 @@ import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 import pl.betka.connectors.ConnectorsConfiguration;
 import pl.betka.connectors.common.exceptions.AuthenticationException;
-import pl.betka.connectors.common.process.AuthenticatorService;
+import pl.betka.connectors.common.process.authentication.AuthenticatorService;
 import pl.betka.connectors_configuration.AuthenticationData;
 import pl.betka.connectors_configuration.pl.fortuna.FortunaWebAuthenticationData;
-import pl.betka.domain.AuthenticationResponse;
+import pl.betka.connectors.common.domain.authentication.AuthenticationResponse;
 import pl.betka.domain.AuthenticationStatus;
 
 @Component
