@@ -1,7 +1,7 @@
-package pl.betka.connectors.authentication.service.integration.utils;
+package pl.betka.connectors.common.integration;
 
 import java.util.UUID;
-import pl.betka.connectors.authentication.service.common.utils.RandomValuesProvider;
+import pl.betka.connectors.common.utils.RandomValuesProvider;
 
 public class FakeRandomValuesProvider implements RandomValuesProvider {
 

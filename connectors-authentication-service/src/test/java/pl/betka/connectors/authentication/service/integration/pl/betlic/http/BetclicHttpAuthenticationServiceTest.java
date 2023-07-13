@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import pl.betka.connectors.authentication.service.integration.utils.IntegrationTestBase;
 import pl.betka.connectors.authentication.service.integration.configuration.TestConnectorConfiguration;
-import pl.betka.connectors.common.domain.AuthenticationResponse;
-import pl.betka.connectors.connectors.pl.betclic.http.BetclicHttpAuthenticationService;
+import pl.betka.connectors.authentication.service.common.domain.AuthenticationResponse;
+import pl.betka.connectors.authentication.service.pl.betclic.http.BetclicHttpAuthenticationService;
 import pl.betka.connectors_configuration.pl.betclic.BetclicUserInfo;
 import pl.betka.domain.AuthenticationStatus;
 
@@ -25,7 +25,8 @@ public class BetclicHttpAuthenticationServiceTest extends IntegrationTestBase {
   private static final String NEW_FINGERPRINT = "d38611dd-f45d-4ff3-884a-353683918438";
   private static final String STORED_FINGERPRINT = "dbca8694-9945-4f13-a511-2a5588188b4e";
 
-  @Autowired BetclicHttpAuthenticationService service;
+  @Autowired
+  BetclicHttpAuthenticationService service;
 
   @Override
   protected String getFileRootPath() {

@@ -1,15 +1,15 @@
-package pl.betka.connectors.authentication.service.integration.configuration;
+package pl.betka.connectors.common.integration.integration;
 
 import com.github.tomakehurst.wiremock.http.HttpClientFactory;
 import org.apache.hc.client5.http.classic.HttpClient;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
-import pl.betka.connectors.authentication.service.integration.utils.FakeRandomValuesProvider;
-import pl.betka.connectors.authentication.service.common.utils.RandomValuesProvider;
+import pl.betka.connectors.common.utils.RandomValuesProvider;
+import pl.betka.connectors.common.integration.FakeRandomValuesProvider;
 
 @TestConfiguration
-public class TestConnectorConfiguration {
+public class IntegrationTestConnectorConfiguration {
   @Bean
   @Profile("integration")
   public HttpClient integrationTestHttpClient() {
