@@ -1,12 +1,12 @@
 package pl.betka.connectors.fetching.service.pl.betclic.http;
 
-import pl.betka.connectors.fetching.service.common.domain.fetching.valueobject.BetResult;
-import pl.betka.connectors.fetching.service.common.domain.fetching.valueobject.Category;
-import pl.betka.connectors.fetching.service.common.domain.fetching.valueobject.EventStatus;
-import pl.betka.connectors.fetching.service.common.domain.fetching.valueobject.SelectionType;
-import pl.betka.connectors.fetching.service.common.domain.fetching.valueobject.TicketResult;
-import pl.betka.connectors.fetching.service.common.domain.fetching.valueobject.TicketType;
-import pl.betka.connectors.fetching.service.common.utils.TypeMapper;
+import pl.betka.connectors.common.utils.TypeMapper;
+import pl.betka.connectors.fetching.service.common.domain.valueobject.BetResult;
+import pl.betka.connectors.fetching.service.common.domain.valueobject.Category;
+import pl.betka.connectors.fetching.service.common.domain.valueobject.EventStatus;
+import pl.betka.connectors.fetching.service.common.domain.valueobject.SelectionType;
+import pl.betka.connectors.fetching.service.common.domain.valueobject.TicketResult;
+import pl.betka.connectors.fetching.service.common.domain.valueobject.TicketType;
 
 public class BetclicMappers {
   static final TypeMapper<BetResult> BET_RESULT_MAPPER =

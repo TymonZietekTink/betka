@@ -14,7 +14,7 @@ import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 import pl.betka.connectors.authentication.service.common.domain.AuthenticationResponse;
 import pl.betka.connectors.authentication.service.common.exceptions.AuthenticationException;
-import pl.betka.connectors.authentication.service.common.process.authentication.AuthenticatorService;
+import pl.betka.connectors.authentication.service.common.process.AuthenticatorService;
 import pl.betka.connectors_configuration.UserInfo;
 import pl.betka.connectors_configuration.pl.fortuna.FortunaUserInfo;
 import pl.betka.domain.AuthenticationStatus;

@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.common.process.authentication;
+package pl.betka.connectors.authentication.service.common.process;
 
 import pl.betka.connectors.authentication.service.common.domain.AuthenticationResponse;
 import pl.betka.connectors.authentication.service.common.process.ConnectorIdentifier;

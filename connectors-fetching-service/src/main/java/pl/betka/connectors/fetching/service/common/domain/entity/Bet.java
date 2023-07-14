@@ -1,12 +1,12 @@
-package pl.betka.connectors.fetching.service.common.domain.fetching.entity;
+package pl.betka.connectors.fetching.service.common.domain.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import lombok.Builder;
-import pl.betka.connectors.fetching.service.common.domain.fetching.valueobject.Category;
-import pl.betka.connectors.fetching.service.common.domain.fetching.valueobject.EventStatus;
-import pl.betka.connectors.fetching.service.common.domain.fetching.valueobject.BetResult;
-import pl.betka.connectors.fetching.service.common.domain.fetching.valueobject.SelectionType;
+import pl.betka.connectors.fetching.service.common.domain.valueobject.Category;
+import pl.betka.connectors.fetching.service.common.domain.valueobject.EventStatus;
+import pl.betka.connectors.fetching.service.common.domain.valueobject.BetResult;
+import pl.betka.connectors.fetching.service.common.domain.valueobject.SelectionType;
 import pl.betka.domain.model.BaseEntity;
 import pl.betka.domain.model.BetId;
 

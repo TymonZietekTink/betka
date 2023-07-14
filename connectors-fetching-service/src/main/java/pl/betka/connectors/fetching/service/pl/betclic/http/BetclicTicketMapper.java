@@ -10,9 +10,9 @@ import static pl.betka.connectors.fetching.service.pl.betclic.http.BetclicMapper
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
-import pl.betka.connectors.fetching.service.common.domain.fetching.entity.Bet;
-import pl.betka.connectors.fetching.service.common.domain.fetching.entity.Ticket;
-import pl.betka.connectors.fetching.service.common.process.fetching.TicketMapper;
+import pl.betka.connectors.fetching.service.common.domain.entity.Bet;
+import pl.betka.connectors.fetching.service.common.domain.entity.Ticket;
+import pl.betka.connectors.fetching.service.common.process.TicketMapper;
 import pl.betka.connectors.fetching.service.pl.betclic.http.entity.BetclicBet;
 import pl.betka.connectors.fetching.service.pl.betclic.http.entity.BetclicTicket;
 

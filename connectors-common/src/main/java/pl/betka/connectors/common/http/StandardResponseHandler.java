@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.common.http;
+package pl.betka.connectors.common.http;
 
 import java.io.IOException;
 import org.apache.hc.client5.http.impl.classic.AbstractHttpClientResponseHandler;

@@ -1,9 +1,9 @@
-package pl.betka.connectors.fetching.service.common.domain.fetching;
+package pl.betka.connectors.fetching.service.common.domain;
 
 import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
-import pl.betka.connectors.fetching.service.common.domain.fetching.entity.Ticket;
+import pl.betka.connectors.fetching.service.common.domain.entity.Ticket;
 import pl.betka.domain.FetchStatus;
 
 @Builder

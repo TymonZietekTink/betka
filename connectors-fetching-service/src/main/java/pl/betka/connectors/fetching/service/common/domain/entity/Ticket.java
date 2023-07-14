@@ -1,11 +1,11 @@
-package pl.betka.connectors.fetching.service.common.domain.fetching.entity;
+package pl.betka.connectors.fetching.service.common.domain.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import lombok.Builder;
-import pl.betka.connectors.fetching.service.common.domain.fetching.valueobject.TicketResult;
-import pl.betka.connectors.fetching.service.common.domain.fetching.valueobject.TicketType;
+import pl.betka.connectors.fetching.service.common.domain.valueobject.TicketResult;
+import pl.betka.connectors.fetching.service.common.domain.valueobject.TicketType;
 import pl.betka.domain.model.BaseEntity;
 import pl.betka.domain.model.TicketId;
 

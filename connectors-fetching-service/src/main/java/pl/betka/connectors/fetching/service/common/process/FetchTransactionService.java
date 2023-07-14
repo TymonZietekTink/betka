@@ -1,6 +1,6 @@
-package pl.betka.connectors.fetching.service.common.process.fetching;
+package pl.betka.connectors.fetching.service.common.process;
 
-import pl.betka.connectors.fetching.service.common.domain.fetching.FetchResponse;
+import pl.betka.connectors.fetching.service.common.domain.FetchResponse;
 import pl.betka.connectors.fetching.service.common.process.ConnectorIdentifier;
 import pl.betka.connectors_configuration.FetchingInputData;
 
