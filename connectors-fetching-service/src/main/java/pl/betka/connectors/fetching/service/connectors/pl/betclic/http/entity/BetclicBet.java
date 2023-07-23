@@ -1,8 +1,9 @@
-package pl.betka.connectors.fetching.service.pl.betclic.http.entity;
+package pl.betka.connectors.fetching.service.connectors.pl.betclic.http.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -43,4 +44,7 @@ public class BetclicBet {
 
   @JsonProperty("match_status")
   private String eventStatus;
+
+  @JsonProperty("combo_selection_details")
+  private List<BetclicComboSelection> comboSelections;
 }

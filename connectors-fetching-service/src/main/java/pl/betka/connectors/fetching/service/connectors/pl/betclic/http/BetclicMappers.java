@@ -1,8 +1,9 @@
-package pl.betka.connectors.fetching.service.pl.betclic.http;
+package pl.betka.connectors.fetching.service.connectors.pl.betclic.http;
 
 import pl.betka.connectors.common.utils.TypeMapper;
 import pl.betka.connectors.fetching.service.common.domain.valueobject.BetResult;
 import pl.betka.connectors.fetching.service.common.domain.valueobject.Category;
+import pl.betka.connectors.fetching.service.common.domain.valueobject.ComboSelectionResult;
 import pl.betka.connectors.fetching.service.common.domain.valueobject.EventStatus;
 import pl.betka.connectors.fetching.service.common.domain.valueobject.SelectionType;
 import pl.betka.connectors.fetching.service.common.domain.valueobject.TicketResult;
@@ -54,5 +55,12 @@ public class BetclicMappers {
           .put(TicketType.SINGLE, "simple")
           .put(TicketType.MULTIPLE, "multiple")
           .setDefaultTranslationValue(TicketType.OTHER)
+          .build();
+
+  static final TypeMapper<ComboSelectionResult> COMBO_SELECTION_RESULT_MAPPER =
+      TypeMapper.<ComboSelectionResult>builder()
+          .put(ComboSelectionResult.LOSE, "Lose")
+          .put(ComboSelectionResult.WIN, "Win")
+          .setDefaultTranslationValue(ComboSelectionResult.OTHER)
           .build();
 }

@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import pl.betka.connectors.fetching.service.common.domain.FetchResponse;
-import pl.betka.connectors.fetching.service.pl.betclic.http.BetclicHttpFetchService;
+import pl.betka.connectors.fetching.service.connectors.pl.betclic.http.BetclicHttpFetchService;
 import pl.betka.connectors.common.integration.integration.IntegrationTestBase;
 import pl.betka.connectors.common.integration.integration.IntegrationTestConnectorConfiguration;
 import pl.betka.connectors_configuration.pl.betclic.BetclicFetchingInputData;

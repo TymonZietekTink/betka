@@ -1,4 +1,4 @@
-package pl.betka.connectors.fetching.service.pl.betclic.http;
+package pl.betka.connectors.fetching.service.connectors.pl.betclic.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URI;
@@ -15,9 +15,9 @@ import org.springframework.stereotype.Component;
 import pl.betka.connectors.fetching.service.common.domain.FetchResponse;
 import pl.betka.connectors.fetching.service.common.domain.entity.Ticket;
 import pl.betka.connectors.fetching.service.common.process.FetchTransactionService;
-import pl.betka.connectors.fetching.service.pl.betclic.common.BetclicConstants;
-import pl.betka.connectors.fetching.service.pl.betclic.http.entity.BetclicTicket;
-import pl.betka.connectors.fetching.service.pl.betclic.http.response.BetsResponse;
+import pl.betka.connectors.fetching.service.connectors.pl.betclic.common.BetclicConstants;
+import pl.betka.connectors.fetching.service.connectors.pl.betclic.http.entity.BetclicTicket;
+import pl.betka.connectors.fetching.service.connectors.pl.betclic.http.response.BetsResponse;
 import pl.betka.connectors_configuration.FetchingInputData;
 import pl.betka.connectors_configuration.pl.betclic.BetclicFetchingInputData;
 import pl.betka.domain.FetchStatus;

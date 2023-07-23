@@ -1,4 +1,4 @@
-package pl.betka.connectors.fetching.service.pl.betclic.http.entity;
+package pl.betka.connectors.fetching.service.connectors.pl.betclic.http.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
