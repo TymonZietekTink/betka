@@ -12,12 +12,12 @@ import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
-import pl.betka.connectors.common.configuration.ConnectorsConfiguration;
 import pl.betka.connectors.authentication.service.common.domain.AuthenticationResponse;
 import pl.betka.connectors.authentication.service.common.exceptions.AuthenticationException;
 import pl.betka.connectors.authentication.service.common.process.AuthenticatorService;
 import pl.betka.connectors.authentication.service.pl.betfan.http.request.LoginRequest;
 import pl.betka.connectors.authentication.service.pl.betfan.http.response.LoginResponse;
+import pl.betka.connectors.common.configuration.ConnectorsConfiguration;
 import pl.betka.connectors.common.http.StandardResponseHandler;
 import pl.betka.connectors_configuration.UserInfo;
 import pl.betka.connectors_configuration.pl.betfan.BetfanUserInfo;
@@ -78,8 +78,7 @@ public class BetfanHttpAuthenticationService implements AuthenticatorService {
     return httpPost;
   }
 
-  @Override
-  public String getIdentifier() {
+  public String getConnectorIdentifier() {
     return "pl-betfan-http";
   }
 }

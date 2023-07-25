@@ -42,7 +42,7 @@ public class EtotoHttpAuthenticationService implements AuthenticatorService {
   }
 
   @Override
-  public String getIdentifier() {
+  public String getConnectorIdentifier() {
     return "pl-etoto-http";
   }
 }

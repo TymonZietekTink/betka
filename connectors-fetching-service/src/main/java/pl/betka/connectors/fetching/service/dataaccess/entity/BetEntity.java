@@ -32,6 +32,8 @@ import pl.betka.connectors.fetching.service.common.domain.valueobject.SelectionT
 @Entity
 public class BetEntity {
   @Id private UUID id;
+  private String bookmakerReference;
+  private String betSelection;
   private String betType;
   private String eventName;
   private LocalDate eventDate;

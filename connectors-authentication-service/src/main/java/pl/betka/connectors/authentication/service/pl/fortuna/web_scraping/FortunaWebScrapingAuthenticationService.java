@@ -100,7 +100,7 @@ public class FortunaWebScrapingAuthenticationService implements AuthenticatorSer
   }
 
   @Override
-  public String getIdentifier() {
+  public String getConnectorIdentifier() {
     return "pl-fortuna-web";
   }
 

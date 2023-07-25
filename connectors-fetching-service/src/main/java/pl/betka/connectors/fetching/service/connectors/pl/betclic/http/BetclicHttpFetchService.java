@@ -32,8 +32,8 @@ public class BetclicHttpFetchService implements FetchTransactionService {
   private final BetclicTicketMapper ticketMapper = new BetclicTicketMapper();
 
   @Override
-  public String getIdentifier() {
-    return BetclicConstants.HTTP_IDENTIFIER;
+  public String getConnectorIdentifier() {
+    return BetclicConstants.CONNECTOR_IDENTIFIER;
   }
 
   @SneakyThrows

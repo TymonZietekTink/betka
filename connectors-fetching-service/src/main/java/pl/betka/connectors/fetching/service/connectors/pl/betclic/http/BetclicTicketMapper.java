@@ -21,12 +21,12 @@ public class BetclicTicketMapper implements TicketMapper<List<BetclicTicket>> {
   }
 
   private Ticket mapBetclicTicket(BetclicTicket betclicTicket) {
-    List<Bet> bets =
-        betclicTicket.getBetclicBets().stream().map(this::mapToBet).collect(Collectors.toList());
+    Set<Bet> bets =
+        betclicTicket.getBetclicBets().stream().map(this::mapToBet).collect(Collectors.toSet());
     return Ticket.builder()
         .ticketType(BetclicMappers.TICKET_TYPE_MAPPER.translate(betclicTicket.getBetType()))
         .betSelections(bets)
-        .betResult(BetclicMappers.TICKET_RESULT_MAPPER.translate(betclicTicket.getResult()))
+        .ticketResult(BetclicMappers.TICKET_RESULT_MAPPER.translate(betclicTicket.getResult()))
         .bookmakerReference(betclicTicket.getExternalId())
         .createdAt(betclicTicket.getBetDate())
         .odds(betclicTicket.getOdds())
