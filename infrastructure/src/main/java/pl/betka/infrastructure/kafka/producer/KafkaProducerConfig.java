@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -14,6 +15,7 @@ import pl.betka.infrastructure.kafka.config.data.KafkaConfigData;
 import pl.betka.infrastructure.kafka.config.data.KafkaProducerConfigData;
 
 @Configuration
+@ComponentScan(basePackages = "pl.betka.infrastructure.kafka")
 public class KafkaProducerConfig<K extends Serializable, V extends SpecificRecordBase> {
 
     private final KafkaConfigData kafkaConfigData;

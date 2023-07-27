@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.config.KafkaListenerContainerFactory;
@@ -17,6 +18,7 @@ import pl.betka.infrastructure.kafka.config.data.KafkaConsumerConfigData;
 
 
 @Configuration
+@ComponentScan(basePackages = "pl.betka.infrastructure.kafka")
 public class KafkaConsumerConfig<K extends Serializable, V extends SpecificRecordBase> {
 
     private final KafkaConfigData kafkaConfigData;
