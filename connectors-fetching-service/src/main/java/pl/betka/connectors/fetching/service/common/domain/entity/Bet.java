@@ -4,18 +4,17 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.BetResult;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.Category;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.EventStatus;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.SelectionType;
+import lombok.experimental.SuperBuilder;
 import pl.betka.domain.model.BaseEntity;
 import pl.betka.domain.model.BetId;
+import pl.betka.domain.model.valueobject.BetResult;
+import pl.betka.domain.model.valueobject.Category;
+import pl.betka.domain.model.valueobject.EventStatus;
+import pl.betka.domain.model.valueobject.SelectionType;
 
-@Builder
+@SuperBuilder
 @Getter
-@EqualsAndHashCode
 public class Bet extends BaseEntity<BetId> {
   private String bookmakerReference;
 

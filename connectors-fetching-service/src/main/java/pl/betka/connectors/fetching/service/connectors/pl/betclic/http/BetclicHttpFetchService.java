@@ -12,6 +12,7 @@ import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.impl.classic.BasicHttpClientResponseHandler;
 import org.apache.hc.core5.http.ClassicHttpRequest;
 import org.springframework.stereotype.Component;
+import pl.betka.connectors.common.utils.RandomValuesProvider;
 import pl.betka.connectors.fetching.service.common.domain.FetchResponse;
 import pl.betka.connectors.fetching.service.common.domain.entity.Ticket;
 import pl.betka.connectors.fetching.service.common.process.FetchTransactionService;
@@ -29,7 +30,7 @@ public class BetclicHttpFetchService implements FetchTransactionService {
 
   private final HttpClient httpClient;
   private final ObjectMapper objectMapper;
-  private final BetclicTicketMapper ticketMapper = new BetclicTicketMapper();
+  private final RandomValuesProvider randomValuesProvider;
 
   @Override
   public String getConnectorIdentifier() {
@@ -56,6 +57,7 @@ public class BetclicHttpFetchService implements FetchTransactionService {
       betclicTickets.addAll(betsResponse.getBetclicTickets());
       offset += 10;
     }
+    BetclicTicketMapper ticketMapper = new BetclicTicketMapper(randomValuesProvider);
     List<Ticket> mappedTickets = ticketMapper.mapToTickets(betclicTickets);
     return FetchResponse.builder().fetchStatus(FetchStatus.FETCHED).tickets(mappedTickets).build();
   }

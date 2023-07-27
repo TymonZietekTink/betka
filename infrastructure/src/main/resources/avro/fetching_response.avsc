@@ -1,0 +1,41 @@
+{
+    "namespace": "pl.betka.infrastructure.kafka.model.avro",
+    "type": "record",
+    "name": "FetchingResponseAvroModel",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "userId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "bookmakerIdentifier",
+            "type": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "fetchingStatus",
+            "type": {
+                  "type": "enum",
+                  "name": "FetchingStatus",
+                  "symbols": ["STARTED", "FETCHING", "FETCHED", "FAILED"]
+            }
+        },
+        {
+             "name": "errorMessage",
+             "type": {
+                   "type": "string"
+             }
+        }
+    ]
+}

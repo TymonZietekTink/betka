@@ -1,4 +1,4 @@
-package pl.betka.connectors.fetching.service.common.domain.valueobject;
+package pl.betka.domain.model.valueobject;
 
 public enum Category {
   FOOTBALL,

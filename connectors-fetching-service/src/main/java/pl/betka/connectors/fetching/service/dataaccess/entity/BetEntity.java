@@ -18,10 +18,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.BetResult;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.Category;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.EventStatus;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.SelectionType;
+import pl.betka.domain.model.valueobject.BetResult;
+import pl.betka.domain.model.valueobject.Category;
+import pl.betka.domain.model.valueobject.EventStatus;
+import pl.betka.domain.model.valueobject.SelectionType;
 
 @Getter
 @Setter

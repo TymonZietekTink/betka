@@ -1,7 +1,10 @@
 package pl.betka.domain.model;
 
 import java.util.Objects;
+import lombok.Builder;
+import lombok.experimental.SuperBuilder;
 
+@SuperBuilder
 public abstract class BaseEntity<ID> {
   private ID id;
 

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import pl.betka.connectors.common.utils.RandomValuesProvider;
 import pl.betka.connectors.fetching.service.common.domain.entity.Bet;
 import pl.betka.connectors.fetching.service.common.domain.entity.ComboSelection;
 import pl.betka.connectors.fetching.service.common.domain.entity.Ticket;
@@ -11,9 +12,13 @@ import pl.betka.connectors.fetching.service.common.process.TicketMapper;
 import pl.betka.connectors.fetching.service.connectors.pl.betclic.http.entity.BetclicBet;
 import pl.betka.connectors.fetching.service.connectors.pl.betclic.http.entity.BetclicComboSelection;
 import pl.betka.connectors.fetching.service.connectors.pl.betclic.http.entity.BetclicTicket;
+import pl.betka.domain.model.BetId;
+import pl.betka.domain.model.ComboSelectionId;
+import pl.betka.domain.model.TicketId;
 
 @RequiredArgsConstructor
 public class BetclicTicketMapper implements TicketMapper<List<BetclicTicket>> {
+  private final RandomValuesProvider randomValuesProvider;
 
   @Override
   public List<Ticket> mapToTickets(List<BetclicTicket> betclicTickets) {
@@ -24,6 +29,7 @@ public class BetclicTicketMapper implements TicketMapper<List<BetclicTicket>> {
     Set<Bet> bets =
         betclicTicket.getBetclicBets().stream().map(this::mapToBet).collect(Collectors.toSet());
     return Ticket.builder()
+        .id(new TicketId(randomValuesProvider.generateUUID()))
         .ticketType(BetclicMappers.TICKET_TYPE_MAPPER.translate(betclicTicket.getBetType()))
         .betSelections(bets)
         .ticketResult(BetclicMappers.TICKET_RESULT_MAPPER.translate(betclicTicket.getResult()))
@@ -38,6 +44,7 @@ public class BetclicTicketMapper implements TicketMapper<List<BetclicTicket>> {
   private Bet mapToBet(BetclicBet betclicBet) {
 
     return Bet.builder()
+        .id(new BetId(randomValuesProvider.generateUUID()))
         .bookmakerReference(String.valueOf(betclicBet.getExternalId()))
         .betSelection(betclicBet.getSelection())
         .eventType(betclicBet.getCompetitionType())
@@ -67,7 +74,7 @@ public class BetclicTicketMapper implements TicketMapper<List<BetclicTicket>> {
   }
 
   private ComboSelection mapToComboSelection(BetclicComboSelection betclicComboSelection) {
-    return ComboSelection.builder()
+    return ComboSelection.builder().id(new ComboSelectionId(randomValuesProvider.generateUUID()))
         .selection(betclicComboSelection.getSelection())
         .bookmakerReference(betclicComboSelection.getBookmakerReference())
         .selectionType(betclicComboSelection.getSelectionType())

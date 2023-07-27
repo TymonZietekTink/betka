@@ -16,8 +16,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.TicketResult;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.TicketType;
+import pl.betka.domain.model.valueobject.TicketResult;
+import pl.betka.domain.model.valueobject.TicketType;
 
 @Getter
 @Setter

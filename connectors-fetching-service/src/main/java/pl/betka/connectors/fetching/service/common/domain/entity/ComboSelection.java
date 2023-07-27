@@ -1,14 +1,12 @@
 package pl.betka.connectors.fetching.service.common.domain.entity;
 
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.ComboSelectionResult;
+import lombok.experimental.SuperBuilder;
 import pl.betka.domain.model.BaseEntity;
 import pl.betka.domain.model.ComboSelectionId;
+import pl.betka.domain.model.valueobject.ComboSelectionResult;
 
-@Builder
-@EqualsAndHashCode
+@SuperBuilder
 @Getter
 public class ComboSelection extends BaseEntity<ComboSelectionId> {
   private String bookmakerReference;

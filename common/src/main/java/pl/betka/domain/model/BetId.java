@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class BetId extends BaseId<UUID> {
 
-  protected BetId(UUID value) {
+  public BetId(UUID value) {
     super(value);
   }
 }

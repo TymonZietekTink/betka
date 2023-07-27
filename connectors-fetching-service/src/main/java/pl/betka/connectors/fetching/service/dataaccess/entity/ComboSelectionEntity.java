@@ -13,7 +13,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.ComboSelectionResult;
+import pl.betka.domain.model.valueobject.ComboSelectionResult;
 
 @Getter
 @Setter

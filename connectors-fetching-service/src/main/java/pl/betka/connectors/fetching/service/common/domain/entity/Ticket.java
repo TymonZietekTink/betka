@@ -3,17 +3,15 @@ package pl.betka.connectors.fetching.service.common.domain.entity;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.TicketResult;
-import pl.betka.connectors.fetching.service.common.domain.valueobject.TicketType;
+import lombok.experimental.SuperBuilder;
 import pl.betka.domain.model.BaseEntity;
 import pl.betka.domain.model.TicketId;
+import pl.betka.domain.model.valueobject.TicketResult;
+import pl.betka.domain.model.valueobject.TicketType;
 
-@Builder
+@SuperBuilder
 @Getter
-@EqualsAndHashCode
 public class Ticket extends BaseEntity<TicketId> {
   private String bookmakerReference;
   // eg. single, multiple

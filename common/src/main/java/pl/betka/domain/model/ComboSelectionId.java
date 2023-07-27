@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class ComboSelectionId extends BaseId<UUID> {
 
-  protected ComboSelectionId(UUID value) {
+  public ComboSelectionId(UUID value) {
     super(value);
   }
 }
