@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.pl.fortuna.web_scraping;
+package pl.betka.connectors.authentication.service.connectors.pl.fortuna.web_scraping;
 
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;

@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.pl.etoto.http.request;
+package pl.betka.connectors.authentication.service.connectors.pl.etoto.http.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.RequiredArgsConstructor;

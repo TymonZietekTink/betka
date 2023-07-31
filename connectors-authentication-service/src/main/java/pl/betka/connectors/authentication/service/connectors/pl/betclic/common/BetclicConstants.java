@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.pl.betclic.common;
+package pl.betka.connectors.authentication.service.connectors.pl.betclic.common;
 
 public class BetclicConstants {
   public static final String CONNECTOR_IDENTIFIER = "pl-betclic-http";

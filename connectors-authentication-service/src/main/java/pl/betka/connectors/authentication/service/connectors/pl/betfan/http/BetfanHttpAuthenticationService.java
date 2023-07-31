@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.pl.betfan.http;
+package pl.betka.connectors.authentication.service.connectors.pl.betfan.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URI;
@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 import pl.betka.connectors.authentication.service.common.domain.AuthenticationResponse;
 import pl.betka.connectors.authentication.service.common.exceptions.AuthenticationException;
 import pl.betka.connectors.authentication.service.common.process.AuthenticatorService;
-import pl.betka.connectors.authentication.service.pl.betfan.http.request.LoginRequest;
-import pl.betka.connectors.authentication.service.pl.betfan.http.response.LoginResponse;
+import pl.betka.connectors.authentication.service.connectors.pl.betfan.http.request.LoginRequest;
+import pl.betka.connectors.authentication.service.connectors.pl.betfan.http.response.LoginResponse;
 import pl.betka.connectors.common.configuration.ConnectorsConfiguration;
 import pl.betka.connectors.common.http.StandardResponseHandler;
 import pl.betka.connectors_configuration.UserInfo;

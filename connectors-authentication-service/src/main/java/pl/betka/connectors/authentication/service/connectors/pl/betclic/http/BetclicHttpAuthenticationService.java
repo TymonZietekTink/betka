@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.pl.betclic.http;
+package pl.betka.connectors.authentication.service.connectors.pl.betclic.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
@@ -13,13 +13,13 @@ import org.springframework.stereotype.Component;
 import pl.betka.connectors.authentication.service.common.domain.AuthenticationResponse;
 import pl.betka.connectors.authentication.service.common.exceptions.AuthenticationException;
 import pl.betka.connectors.authentication.service.common.process.AuthenticatorService;
-import pl.betka.connectors.authentication.service.pl.betclic.common.BetclicConstants;
+import pl.betka.connectors.authentication.service.connectors.pl.betclic.common.BetclicConstants;
 import pl.betka.connectors.common.utils.RandomValuesProvider;
-import pl.betka.connectors.connectors.pl.betclic.http.entity.Digest;
-import pl.betka.connectors.connectors.pl.betclic.http.request.BirtDateDigestRequest;
-import pl.betka.connectors.connectors.pl.betclic.http.request.BirtDateDigestRequest.Parameter;
-import pl.betka.connectors.connectors.pl.betclic.http.request.LoginRequest;
-import pl.betka.connectors.connectors.pl.betclic.http.response.LoginResponse;
+import pl.betka.connectors.authentication.service.connectors.pl.betclic.http.entity.Digest;
+import pl.betka.connectors.authentication.service.connectors.pl.betclic.http.request.BirtDateDigestRequest;
+import pl.betka.connectors.authentication.service.connectors.pl.betclic.http.request.BirtDateDigestRequest.Parameter;
+import pl.betka.connectors.authentication.service.connectors.pl.betclic.http.request.LoginRequest;
+import pl.betka.connectors.authentication.service.connectors.pl.betclic.http.response.LoginResponse;
 import pl.betka.connectors_configuration.UserInfo;
 import pl.betka.connectors_configuration.pl.betclic.BetclicUserInfo;
 import pl.betka.domain.AuthenticationStatus;

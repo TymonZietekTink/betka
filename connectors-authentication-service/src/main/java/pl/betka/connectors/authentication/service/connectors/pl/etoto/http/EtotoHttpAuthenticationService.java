@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.pl.etoto.http;
+package pl.betka.connectors.authentication.service.connectors.pl.etoto.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +9,7 @@ import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.springframework.stereotype.Component;
 import pl.betka.connectors.authentication.service.common.domain.AuthenticationResponse;
 import pl.betka.connectors.authentication.service.common.process.AuthenticatorService;
-import pl.betka.connectors.authentication.service.pl.etoto.http.request.LoginRequest;
+import pl.betka.connectors.authentication.service.connectors.pl.etoto.http.request.LoginRequest;
 import pl.betka.connectors.common.http.StandardResponseHandler;
 import pl.betka.connectors_configuration.UserInfo;
 import pl.betka.connectors_configuration.pl.etoto.EtotoUserInfo;

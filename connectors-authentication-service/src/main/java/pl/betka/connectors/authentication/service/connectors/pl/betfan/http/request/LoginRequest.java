@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.pl.betfan.http.request;
+package pl.betka.connectors.authentication.service.connectors.pl.betfan.http.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.RequiredArgsConstructor;
