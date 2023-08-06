@@ -22,8 +22,11 @@ dependencies {
 	implementation 'org.apache.commons:commons-lang3:3.12.0'
 	implementation 'org.apache.httpcomponents.client5:httpclient5:5.2.1'
 	implementation 'com.google.guava:guava:32.1.1-jre'
+	implementation "org.apache.avro:avro:1.11.0"
+	implementation 'org.springframework.kafka:spring-kafka:2.8.2'
 	implementation(project(":common"))
 	implementation(project(":connectors-common"))
+	implementation(project(":infrastructure"))
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.cloud:spring-cloud-contract-maven-plugin:3.1.5'
