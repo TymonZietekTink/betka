@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class AuthenticationResponseAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 8937196933302579348L;
+  private static final long serialVersionUID = -9116856606820719938L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AuthenticationResponseAvroModel\",\"namespace\":\"pl.betka.infrastructure.kafka.model.avro\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"userId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"bookmakerIdentifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"authenticationOutputData\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"authenticationStatus\",\"type\":{\"type\":\"enum\",\"name\":\"AuthenticationStatus\",\"symbols\":[\"STARTED\",\"AUTHENTICATING\",\"AUTHENTICATED\",\"FAILED\",\"NEEDS_ADDITIONAL_INPUT\"]}},{\"name\":\"errorMessage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AuthenticationResponseAvroModel\",\"namespace\":\"pl.betka.infrastructure.kafka.model.avro\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"authenticationOutputData\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"authenticationStatus\",\"type\":{\"type\":\"enum\",\"name\":\"AuthenticationStatus\",\"symbols\":[\"STARTED\",\"AUTHENTICATING\",\"AUTHENTICATED\",\"FAILED\",\"NEEDS_ADDITIONAL_INPUT\"]}},{\"name\":\"errorMessage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -77,8 +77,6 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
   }
 
   private java.util.UUID id;
-  private java.util.UUID userId;
-  private java.lang.String bookmakerIdentifier;
   private java.lang.String authenticationOutputData;
   private pl.betka.infrastructure.kafka.model.avro.AuthenticationStatus authenticationStatus;
   private java.lang.String errorMessage;
@@ -93,16 +91,12 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
   /**
    * All-args constructor.
    * @param id The new value for id
-   * @param userId The new value for userId
-   * @param bookmakerIdentifier The new value for bookmakerIdentifier
    * @param authenticationOutputData The new value for authenticationOutputData
    * @param authenticationStatus The new value for authenticationStatus
    * @param errorMessage The new value for errorMessage
    */
-  public AuthenticationResponseAvroModel(java.util.UUID id, java.util.UUID userId, java.lang.String bookmakerIdentifier, java.lang.String authenticationOutputData, pl.betka.infrastructure.kafka.model.avro.AuthenticationStatus authenticationStatus, java.lang.String errorMessage) {
+  public AuthenticationResponseAvroModel(java.util.UUID id, java.lang.String authenticationOutputData, pl.betka.infrastructure.kafka.model.avro.AuthenticationStatus authenticationStatus, java.lang.String errorMessage) {
     this.id = id;
-    this.userId = userId;
-    this.bookmakerIdentifier = bookmakerIdentifier;
     this.authenticationOutputData = authenticationOutputData;
     this.authenticationStatus = authenticationStatus;
     this.errorMessage = errorMessage;
@@ -119,11 +113,9 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return id;
-    case 1: return userId;
-    case 2: return bookmakerIdentifier;
-    case 3: return authenticationOutputData;
-    case 4: return authenticationStatus;
-    case 5: return errorMessage;
+    case 1: return authenticationOutputData;
+    case 2: return authenticationStatus;
+    case 3: return errorMessage;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -131,8 +123,6 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
   private static final org.apache.avro.Conversion<?>[] conversions =
       new org.apache.avro.Conversion<?>[] {
       new org.apache.avro.Conversions.UUIDConversion(),
-      new org.apache.avro.Conversions.UUIDConversion(),
-      null,
       null,
       null,
       null,
@@ -150,11 +140,9 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: id = (java.util.UUID)value$; break;
-    case 1: userId = (java.util.UUID)value$; break;
-    case 2: bookmakerIdentifier = value$ != null ? value$.toString() : null; break;
-    case 3: authenticationOutputData = value$ != null ? value$.toString() : null; break;
-    case 4: authenticationStatus = (pl.betka.infrastructure.kafka.model.avro.AuthenticationStatus)value$; break;
-    case 5: errorMessage = value$ != null ? value$.toString() : null; break;
+    case 1: authenticationOutputData = value$ != null ? value$.toString() : null; break;
+    case 2: authenticationStatus = (pl.betka.infrastructure.kafka.model.avro.AuthenticationStatus)value$; break;
+    case 3: errorMessage = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -174,40 +162,6 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
    */
   public void setId(java.util.UUID value) {
     this.id = value;
-  }
-
-  /**
-   * Gets the value of the 'userId' field.
-   * @return The value of the 'userId' field.
-   */
-  public java.util.UUID getUserId() {
-    return userId;
-  }
-
-
-  /**
-   * Sets the value of the 'userId' field.
-   * @param value the value to set.
-   */
-  public void setUserId(java.util.UUID value) {
-    this.userId = value;
-  }
-
-  /**
-   * Gets the value of the 'bookmakerIdentifier' field.
-   * @return The value of the 'bookmakerIdentifier' field.
-   */
-  public java.lang.String getBookmakerIdentifier() {
-    return bookmakerIdentifier;
-  }
-
-
-  /**
-   * Sets the value of the 'bookmakerIdentifier' field.
-   * @param value the value to set.
-   */
-  public void setBookmakerIdentifier(java.lang.String value) {
-    this.bookmakerIdentifier = value;
   }
 
   /**
@@ -303,8 +257,6 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
     implements org.apache.avro.data.RecordBuilder<AuthenticationResponseAvroModel> {
 
     private java.util.UUID id;
-    private java.util.UUID userId;
-    private java.lang.String bookmakerIdentifier;
     private java.lang.String authenticationOutputData;
     private pl.betka.infrastructure.kafka.model.avro.AuthenticationStatus authenticationStatus;
     private java.lang.String errorMessage;
@@ -324,25 +276,17 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.userId)) {
-        this.userId = data().deepCopy(fields()[1].schema(), other.userId);
+      if (isValidValue(fields()[1], other.authenticationOutputData)) {
+        this.authenticationOutputData = data().deepCopy(fields()[1].schema(), other.authenticationOutputData);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.bookmakerIdentifier)) {
-        this.bookmakerIdentifier = data().deepCopy(fields()[2].schema(), other.bookmakerIdentifier);
+      if (isValidValue(fields()[2], other.authenticationStatus)) {
+        this.authenticationStatus = data().deepCopy(fields()[2].schema(), other.authenticationStatus);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.authenticationOutputData)) {
-        this.authenticationOutputData = data().deepCopy(fields()[3].schema(), other.authenticationOutputData);
+      if (isValidValue(fields()[3], other.errorMessage)) {
+        this.errorMessage = data().deepCopy(fields()[3].schema(), other.errorMessage);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
-      }
-      if (isValidValue(fields()[4], other.authenticationStatus)) {
-        this.authenticationStatus = data().deepCopy(fields()[4].schema(), other.authenticationStatus);
-        fieldSetFlags()[4] = other.fieldSetFlags()[4];
-      }
-      if (isValidValue(fields()[5], other.errorMessage)) {
-        this.errorMessage = data().deepCopy(fields()[5].schema(), other.errorMessage);
-        fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
     }
 
@@ -356,25 +300,17 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.userId)) {
-        this.userId = data().deepCopy(fields()[1].schema(), other.userId);
+      if (isValidValue(fields()[1], other.authenticationOutputData)) {
+        this.authenticationOutputData = data().deepCopy(fields()[1].schema(), other.authenticationOutputData);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.bookmakerIdentifier)) {
-        this.bookmakerIdentifier = data().deepCopy(fields()[2].schema(), other.bookmakerIdentifier);
+      if (isValidValue(fields()[2], other.authenticationStatus)) {
+        this.authenticationStatus = data().deepCopy(fields()[2].schema(), other.authenticationStatus);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.authenticationOutputData)) {
-        this.authenticationOutputData = data().deepCopy(fields()[3].schema(), other.authenticationOutputData);
+      if (isValidValue(fields()[3], other.errorMessage)) {
+        this.errorMessage = data().deepCopy(fields()[3].schema(), other.errorMessage);
         fieldSetFlags()[3] = true;
-      }
-      if (isValidValue(fields()[4], other.authenticationStatus)) {
-        this.authenticationStatus = data().deepCopy(fields()[4].schema(), other.authenticationStatus);
-        fieldSetFlags()[4] = true;
-      }
-      if (isValidValue(fields()[5], other.errorMessage)) {
-        this.errorMessage = data().deepCopy(fields()[5].schema(), other.errorMessage);
-        fieldSetFlags()[5] = true;
       }
     }
 
@@ -419,86 +355,6 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
     }
 
     /**
-      * Gets the value of the 'userId' field.
-      * @return The value.
-      */
-    public java.util.UUID getUserId() {
-      return userId;
-    }
-
-
-    /**
-      * Sets the value of the 'userId' field.
-      * @param value The value of 'userId'.
-      * @return This builder.
-      */
-    public pl.betka.infrastructure.kafka.model.avro.AuthenticationResponseAvroModel.Builder setUserId(java.util.UUID value) {
-      validate(fields()[1], value);
-      this.userId = value;
-      fieldSetFlags()[1] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'userId' field has been set.
-      * @return True if the 'userId' field has been set, false otherwise.
-      */
-    public boolean hasUserId() {
-      return fieldSetFlags()[1];
-    }
-
-
-    /**
-      * Clears the value of the 'userId' field.
-      * @return This builder.
-      */
-    public pl.betka.infrastructure.kafka.model.avro.AuthenticationResponseAvroModel.Builder clearUserId() {
-      userId = null;
-      fieldSetFlags()[1] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'bookmakerIdentifier' field.
-      * @return The value.
-      */
-    public java.lang.String getBookmakerIdentifier() {
-      return bookmakerIdentifier;
-    }
-
-
-    /**
-      * Sets the value of the 'bookmakerIdentifier' field.
-      * @param value The value of 'bookmakerIdentifier'.
-      * @return This builder.
-      */
-    public pl.betka.infrastructure.kafka.model.avro.AuthenticationResponseAvroModel.Builder setBookmakerIdentifier(java.lang.String value) {
-      validate(fields()[2], value);
-      this.bookmakerIdentifier = value;
-      fieldSetFlags()[2] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'bookmakerIdentifier' field has been set.
-      * @return True if the 'bookmakerIdentifier' field has been set, false otherwise.
-      */
-    public boolean hasBookmakerIdentifier() {
-      return fieldSetFlags()[2];
-    }
-
-
-    /**
-      * Clears the value of the 'bookmakerIdentifier' field.
-      * @return This builder.
-      */
-    public pl.betka.infrastructure.kafka.model.avro.AuthenticationResponseAvroModel.Builder clearBookmakerIdentifier() {
-      bookmakerIdentifier = null;
-      fieldSetFlags()[2] = false;
-      return this;
-    }
-
-    /**
       * Gets the value of the 'authenticationOutputData' field.
       * @return The value.
       */
@@ -513,9 +369,9 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public pl.betka.infrastructure.kafka.model.avro.AuthenticationResponseAvroModel.Builder setAuthenticationOutputData(java.lang.String value) {
-      validate(fields()[3], value);
+      validate(fields()[1], value);
       this.authenticationOutputData = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[1] = true;
       return this;
     }
 
@@ -524,7 +380,7 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
       * @return True if the 'authenticationOutputData' field has been set, false otherwise.
       */
     public boolean hasAuthenticationOutputData() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[1];
     }
 
 
@@ -534,7 +390,7 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
       */
     public pl.betka.infrastructure.kafka.model.avro.AuthenticationResponseAvroModel.Builder clearAuthenticationOutputData() {
       authenticationOutputData = null;
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
@@ -553,9 +409,9 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public pl.betka.infrastructure.kafka.model.avro.AuthenticationResponseAvroModel.Builder setAuthenticationStatus(pl.betka.infrastructure.kafka.model.avro.AuthenticationStatus value) {
-      validate(fields()[4], value);
+      validate(fields()[2], value);
       this.authenticationStatus = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -564,7 +420,7 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
       * @return True if the 'authenticationStatus' field has been set, false otherwise.
       */
     public boolean hasAuthenticationStatus() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[2];
     }
 
 
@@ -574,7 +430,7 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
       */
     public pl.betka.infrastructure.kafka.model.avro.AuthenticationResponseAvroModel.Builder clearAuthenticationStatus() {
       authenticationStatus = null;
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -593,9 +449,9 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public pl.betka.infrastructure.kafka.model.avro.AuthenticationResponseAvroModel.Builder setErrorMessage(java.lang.String value) {
-      validate(fields()[5], value);
+      validate(fields()[3], value);
       this.errorMessage = value;
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -604,7 +460,7 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
       * @return True if the 'errorMessage' field has been set, false otherwise.
       */
     public boolean hasErrorMessage() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[3];
     }
 
 
@@ -614,7 +470,7 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
       */
     public pl.betka.infrastructure.kafka.model.avro.AuthenticationResponseAvroModel.Builder clearErrorMessage() {
       errorMessage = null;
-      fieldSetFlags()[5] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -624,11 +480,9 @@ public class AuthenticationResponseAvroModel extends org.apache.avro.specific.Sp
       try {
         AuthenticationResponseAvroModel record = new AuthenticationResponseAvroModel();
         record.id = fieldSetFlags()[0] ? this.id : (java.util.UUID) defaultValue(fields()[0]);
-        record.userId = fieldSetFlags()[1] ? this.userId : (java.util.UUID) defaultValue(fields()[1]);
-        record.bookmakerIdentifier = fieldSetFlags()[2] ? this.bookmakerIdentifier : (java.lang.String) defaultValue(fields()[2]);
-        record.authenticationOutputData = fieldSetFlags()[3] ? this.authenticationOutputData : (java.lang.String) defaultValue(fields()[3]);
-        record.authenticationStatus = fieldSetFlags()[4] ? this.authenticationStatus : (pl.betka.infrastructure.kafka.model.avro.AuthenticationStatus) defaultValue(fields()[4]);
-        record.errorMessage = fieldSetFlags()[5] ? this.errorMessage : (java.lang.String) defaultValue(fields()[5]);
+        record.authenticationOutputData = fieldSetFlags()[1] ? this.authenticationOutputData : (java.lang.String) defaultValue(fields()[1]);
+        record.authenticationStatus = fieldSetFlags()[2] ? this.authenticationStatus : (pl.betka.infrastructure.kafka.model.avro.AuthenticationStatus) defaultValue(fields()[2]);
+        record.errorMessage = fieldSetFlags()[3] ? this.errorMessage : (java.lang.String) defaultValue(fields()[3]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;

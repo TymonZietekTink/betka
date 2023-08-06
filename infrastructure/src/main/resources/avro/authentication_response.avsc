@@ -11,19 +11,6 @@
             }
         },
         {
-            "name": "userId",
-            "type": {
-                "type": "string",
-                "logicalType": "uuid"
-            }
-        },
-        {
-            "name": "bookmakerIdentifier",
-            "type": {
-                "type": "string"
-            }
-        },
-        {
             "name": "authenticationOutputData",
             "type": {
                 "type": "string"

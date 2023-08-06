@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class FetchingResponseAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 4787084099739169441L;
+  private static final long serialVersionUID = 7662366239563972437L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"FetchingResponseAvroModel\",\"namespace\":\"pl.betka.infrastructure.kafka.model.avro\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"userId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"bookmakerIdentifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"fetchingStatus\",\"type\":{\"type\":\"enum\",\"name\":\"FetchingStatus\",\"symbols\":[\"STARTED\",\"FETCHING\",\"FETCHED\",\"FAILED\"]}},{\"name\":\"errorMessage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"FetchingResponseAvroModel\",\"namespace\":\"pl.betka.infrastructure.kafka.model.avro\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"fetchingStatus\",\"type\":{\"type\":\"enum\",\"name\":\"FetchingStatus\",\"symbols\":[\"STARTED\",\"FETCHING\",\"FETCHED\",\"FAILED\"]}},{\"name\":\"errorMessage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -77,8 +77,6 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
   }
 
   private java.util.UUID id;
-  private java.util.UUID userId;
-  private java.lang.String bookmakerIdentifier;
   private pl.betka.infrastructure.kafka.model.avro.FetchingStatus fetchingStatus;
   private java.lang.String errorMessage;
 
@@ -92,15 +90,11 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
   /**
    * All-args constructor.
    * @param id The new value for id
-   * @param userId The new value for userId
-   * @param bookmakerIdentifier The new value for bookmakerIdentifier
    * @param fetchingStatus The new value for fetchingStatus
    * @param errorMessage The new value for errorMessage
    */
-  public FetchingResponseAvroModel(java.util.UUID id, java.util.UUID userId, java.lang.String bookmakerIdentifier, pl.betka.infrastructure.kafka.model.avro.FetchingStatus fetchingStatus, java.lang.String errorMessage) {
+  public FetchingResponseAvroModel(java.util.UUID id, pl.betka.infrastructure.kafka.model.avro.FetchingStatus fetchingStatus, java.lang.String errorMessage) {
     this.id = id;
-    this.userId = userId;
-    this.bookmakerIdentifier = bookmakerIdentifier;
     this.fetchingStatus = fetchingStatus;
     this.errorMessage = errorMessage;
   }
@@ -116,10 +110,8 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return id;
-    case 1: return userId;
-    case 2: return bookmakerIdentifier;
-    case 3: return fetchingStatus;
-    case 4: return errorMessage;
+    case 1: return fetchingStatus;
+    case 2: return errorMessage;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -127,8 +119,6 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
   private static final org.apache.avro.Conversion<?>[] conversions =
       new org.apache.avro.Conversion<?>[] {
       new org.apache.avro.Conversions.UUIDConversion(),
-      new org.apache.avro.Conversions.UUIDConversion(),
-      null,
       null,
       null,
       null
@@ -145,10 +135,8 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: id = (java.util.UUID)value$; break;
-    case 1: userId = (java.util.UUID)value$; break;
-    case 2: bookmakerIdentifier = value$ != null ? value$.toString() : null; break;
-    case 3: fetchingStatus = (pl.betka.infrastructure.kafka.model.avro.FetchingStatus)value$; break;
-    case 4: errorMessage = value$ != null ? value$.toString() : null; break;
+    case 1: fetchingStatus = (pl.betka.infrastructure.kafka.model.avro.FetchingStatus)value$; break;
+    case 2: errorMessage = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -168,40 +156,6 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
    */
   public void setId(java.util.UUID value) {
     this.id = value;
-  }
-
-  /**
-   * Gets the value of the 'userId' field.
-   * @return The value of the 'userId' field.
-   */
-  public java.util.UUID getUserId() {
-    return userId;
-  }
-
-
-  /**
-   * Sets the value of the 'userId' field.
-   * @param value the value to set.
-   */
-  public void setUserId(java.util.UUID value) {
-    this.userId = value;
-  }
-
-  /**
-   * Gets the value of the 'bookmakerIdentifier' field.
-   * @return The value of the 'bookmakerIdentifier' field.
-   */
-  public java.lang.String getBookmakerIdentifier() {
-    return bookmakerIdentifier;
-  }
-
-
-  /**
-   * Sets the value of the 'bookmakerIdentifier' field.
-   * @param value the value to set.
-   */
-  public void setBookmakerIdentifier(java.lang.String value) {
-    this.bookmakerIdentifier = value;
   }
 
   /**
@@ -280,8 +234,6 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
     implements org.apache.avro.data.RecordBuilder<FetchingResponseAvroModel> {
 
     private java.util.UUID id;
-    private java.util.UUID userId;
-    private java.lang.String bookmakerIdentifier;
     private pl.betka.infrastructure.kafka.model.avro.FetchingStatus fetchingStatus;
     private java.lang.String errorMessage;
 
@@ -300,21 +252,13 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.userId)) {
-        this.userId = data().deepCopy(fields()[1].schema(), other.userId);
+      if (isValidValue(fields()[1], other.fetchingStatus)) {
+        this.fetchingStatus = data().deepCopy(fields()[1].schema(), other.fetchingStatus);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.bookmakerIdentifier)) {
-        this.bookmakerIdentifier = data().deepCopy(fields()[2].schema(), other.bookmakerIdentifier);
+      if (isValidValue(fields()[2], other.errorMessage)) {
+        this.errorMessage = data().deepCopy(fields()[2].schema(), other.errorMessage);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
-      }
-      if (isValidValue(fields()[3], other.fetchingStatus)) {
-        this.fetchingStatus = data().deepCopy(fields()[3].schema(), other.fetchingStatus);
-        fieldSetFlags()[3] = other.fieldSetFlags()[3];
-      }
-      if (isValidValue(fields()[4], other.errorMessage)) {
-        this.errorMessage = data().deepCopy(fields()[4].schema(), other.errorMessage);
-        fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
     }
 
@@ -328,21 +272,13 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.userId)) {
-        this.userId = data().deepCopy(fields()[1].schema(), other.userId);
+      if (isValidValue(fields()[1], other.fetchingStatus)) {
+        this.fetchingStatus = data().deepCopy(fields()[1].schema(), other.fetchingStatus);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.bookmakerIdentifier)) {
-        this.bookmakerIdentifier = data().deepCopy(fields()[2].schema(), other.bookmakerIdentifier);
+      if (isValidValue(fields()[2], other.errorMessage)) {
+        this.errorMessage = data().deepCopy(fields()[2].schema(), other.errorMessage);
         fieldSetFlags()[2] = true;
-      }
-      if (isValidValue(fields()[3], other.fetchingStatus)) {
-        this.fetchingStatus = data().deepCopy(fields()[3].schema(), other.fetchingStatus);
-        fieldSetFlags()[3] = true;
-      }
-      if (isValidValue(fields()[4], other.errorMessage)) {
-        this.errorMessage = data().deepCopy(fields()[4].schema(), other.errorMessage);
-        fieldSetFlags()[4] = true;
       }
     }
 
@@ -387,86 +323,6 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
     }
 
     /**
-      * Gets the value of the 'userId' field.
-      * @return The value.
-      */
-    public java.util.UUID getUserId() {
-      return userId;
-    }
-
-
-    /**
-      * Sets the value of the 'userId' field.
-      * @param value The value of 'userId'.
-      * @return This builder.
-      */
-    public pl.betka.infrastructure.kafka.model.avro.FetchingResponseAvroModel.Builder setUserId(java.util.UUID value) {
-      validate(fields()[1], value);
-      this.userId = value;
-      fieldSetFlags()[1] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'userId' field has been set.
-      * @return True if the 'userId' field has been set, false otherwise.
-      */
-    public boolean hasUserId() {
-      return fieldSetFlags()[1];
-    }
-
-
-    /**
-      * Clears the value of the 'userId' field.
-      * @return This builder.
-      */
-    public pl.betka.infrastructure.kafka.model.avro.FetchingResponseAvroModel.Builder clearUserId() {
-      userId = null;
-      fieldSetFlags()[1] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'bookmakerIdentifier' field.
-      * @return The value.
-      */
-    public java.lang.String getBookmakerIdentifier() {
-      return bookmakerIdentifier;
-    }
-
-
-    /**
-      * Sets the value of the 'bookmakerIdentifier' field.
-      * @param value The value of 'bookmakerIdentifier'.
-      * @return This builder.
-      */
-    public pl.betka.infrastructure.kafka.model.avro.FetchingResponseAvroModel.Builder setBookmakerIdentifier(java.lang.String value) {
-      validate(fields()[2], value);
-      this.bookmakerIdentifier = value;
-      fieldSetFlags()[2] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'bookmakerIdentifier' field has been set.
-      * @return True if the 'bookmakerIdentifier' field has been set, false otherwise.
-      */
-    public boolean hasBookmakerIdentifier() {
-      return fieldSetFlags()[2];
-    }
-
-
-    /**
-      * Clears the value of the 'bookmakerIdentifier' field.
-      * @return This builder.
-      */
-    public pl.betka.infrastructure.kafka.model.avro.FetchingResponseAvroModel.Builder clearBookmakerIdentifier() {
-      bookmakerIdentifier = null;
-      fieldSetFlags()[2] = false;
-      return this;
-    }
-
-    /**
       * Gets the value of the 'fetchingStatus' field.
       * @return The value.
       */
@@ -481,9 +337,9 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
       * @return This builder.
       */
     public pl.betka.infrastructure.kafka.model.avro.FetchingResponseAvroModel.Builder setFetchingStatus(pl.betka.infrastructure.kafka.model.avro.FetchingStatus value) {
-      validate(fields()[3], value);
+      validate(fields()[1], value);
       this.fetchingStatus = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[1] = true;
       return this;
     }
 
@@ -492,7 +348,7 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
       * @return True if the 'fetchingStatus' field has been set, false otherwise.
       */
     public boolean hasFetchingStatus() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[1];
     }
 
 
@@ -502,7 +358,7 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
       */
     public pl.betka.infrastructure.kafka.model.avro.FetchingResponseAvroModel.Builder clearFetchingStatus() {
       fetchingStatus = null;
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
@@ -521,9 +377,9 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
       * @return This builder.
       */
     public pl.betka.infrastructure.kafka.model.avro.FetchingResponseAvroModel.Builder setErrorMessage(java.lang.String value) {
-      validate(fields()[4], value);
+      validate(fields()[2], value);
       this.errorMessage = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -532,7 +388,7 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
       * @return True if the 'errorMessage' field has been set, false otherwise.
       */
     public boolean hasErrorMessage() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[2];
     }
 
 
@@ -542,7 +398,7 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
       */
     public pl.betka.infrastructure.kafka.model.avro.FetchingResponseAvroModel.Builder clearErrorMessage() {
       errorMessage = null;
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -552,10 +408,8 @@ public class FetchingResponseAvroModel extends org.apache.avro.specific.Specific
       try {
         FetchingResponseAvroModel record = new FetchingResponseAvroModel();
         record.id = fieldSetFlags()[0] ? this.id : (java.util.UUID) defaultValue(fields()[0]);
-        record.userId = fieldSetFlags()[1] ? this.userId : (java.util.UUID) defaultValue(fields()[1]);
-        record.bookmakerIdentifier = fieldSetFlags()[2] ? this.bookmakerIdentifier : (java.lang.String) defaultValue(fields()[2]);
-        record.fetchingStatus = fieldSetFlags()[3] ? this.fetchingStatus : (pl.betka.infrastructure.kafka.model.avro.FetchingStatus) defaultValue(fields()[3]);
-        record.errorMessage = fieldSetFlags()[4] ? this.errorMessage : (java.lang.String) defaultValue(fields()[4]);
+        record.fetchingStatus = fieldSetFlags()[1] ? this.fetchingStatus : (pl.betka.infrastructure.kafka.model.avro.FetchingStatus) defaultValue(fields()[1]);
+        record.errorMessage = fieldSetFlags()[2] ? this.errorMessage : (java.lang.String) defaultValue(fields()[2]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;

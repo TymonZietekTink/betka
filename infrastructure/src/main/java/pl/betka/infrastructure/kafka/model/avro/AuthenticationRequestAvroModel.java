@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class AuthenticationRequestAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -2939535459112986539L;
+  private static final long serialVersionUID = 8440830623311619737L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AuthenticationRequestAvroModel\",\"namespace\":\"pl.betka.infrastructure.kafka.model.avro\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"userId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"bookmakerIdentifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"authenticationInputData\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastRefresh\",\"type\":{\"type\":\"int\",\"logicalType\":\"date\"}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AuthenticationRequestAvroModel\",\"namespace\":\"pl.betka.infrastructure.kafka.model.avro\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"bookmakerIdentifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"authenticationInputData\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastRefresh\",\"type\":{\"type\":\"int\",\"logicalType\":\"date\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -78,7 +78,6 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
   }
 
   private java.util.UUID id;
-  private java.util.UUID userId;
   private java.lang.String bookmakerIdentifier;
   private java.lang.String authenticationInputData;
   private java.time.LocalDate lastRefresh;
@@ -93,14 +92,12 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
   /**
    * All-args constructor.
    * @param id The new value for id
-   * @param userId The new value for userId
    * @param bookmakerIdentifier The new value for bookmakerIdentifier
    * @param authenticationInputData The new value for authenticationInputData
    * @param lastRefresh The new value for lastRefresh
    */
-  public AuthenticationRequestAvroModel(java.util.UUID id, java.util.UUID userId, java.lang.String bookmakerIdentifier, java.lang.String authenticationInputData, java.time.LocalDate lastRefresh) {
+  public AuthenticationRequestAvroModel(java.util.UUID id, java.lang.String bookmakerIdentifier, java.lang.String authenticationInputData, java.time.LocalDate lastRefresh) {
     this.id = id;
-    this.userId = userId;
     this.bookmakerIdentifier = bookmakerIdentifier;
     this.authenticationInputData = authenticationInputData;
     this.lastRefresh = lastRefresh;
@@ -117,17 +114,15 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return id;
-    case 1: return userId;
-    case 2: return bookmakerIdentifier;
-    case 3: return authenticationInputData;
-    case 4: return lastRefresh;
+    case 1: return bookmakerIdentifier;
+    case 2: return authenticationInputData;
+    case 3: return lastRefresh;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
   private static final org.apache.avro.Conversion<?>[] conversions =
       new org.apache.avro.Conversion<?>[] {
-      new org.apache.avro.Conversions.UUIDConversion(),
       new org.apache.avro.Conversions.UUIDConversion(),
       null,
       null,
@@ -146,10 +141,9 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: id = (java.util.UUID)value$; break;
-    case 1: userId = (java.util.UUID)value$; break;
-    case 2: bookmakerIdentifier = value$ != null ? value$.toString() : null; break;
-    case 3: authenticationInputData = value$ != null ? value$.toString() : null; break;
-    case 4: lastRefresh = (java.time.LocalDate)value$; break;
+    case 1: bookmakerIdentifier = value$ != null ? value$.toString() : null; break;
+    case 2: authenticationInputData = value$ != null ? value$.toString() : null; break;
+    case 3: lastRefresh = (java.time.LocalDate)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -169,23 +163,6 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
    */
   public void setId(java.util.UUID value) {
     this.id = value;
-  }
-
-  /**
-   * Gets the value of the 'userId' field.
-   * @return The value of the 'userId' field.
-   */
-  public java.util.UUID getUserId() {
-    return userId;
-  }
-
-
-  /**
-   * Sets the value of the 'userId' field.
-   * @param value the value to set.
-   */
-  public void setUserId(java.util.UUID value) {
-    this.userId = value;
   }
 
   /**
@@ -281,7 +258,6 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
     implements org.apache.avro.data.RecordBuilder<AuthenticationRequestAvroModel> {
 
     private java.util.UUID id;
-    private java.util.UUID userId;
     private java.lang.String bookmakerIdentifier;
     private java.lang.String authenticationInputData;
     private java.time.LocalDate lastRefresh;
@@ -301,21 +277,17 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.userId)) {
-        this.userId = data().deepCopy(fields()[1].schema(), other.userId);
+      if (isValidValue(fields()[1], other.bookmakerIdentifier)) {
+        this.bookmakerIdentifier = data().deepCopy(fields()[1].schema(), other.bookmakerIdentifier);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.bookmakerIdentifier)) {
-        this.bookmakerIdentifier = data().deepCopy(fields()[2].schema(), other.bookmakerIdentifier);
+      if (isValidValue(fields()[2], other.authenticationInputData)) {
+        this.authenticationInputData = data().deepCopy(fields()[2].schema(), other.authenticationInputData);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.authenticationInputData)) {
-        this.authenticationInputData = data().deepCopy(fields()[3].schema(), other.authenticationInputData);
+      if (isValidValue(fields()[3], other.lastRefresh)) {
+        this.lastRefresh = data().deepCopy(fields()[3].schema(), other.lastRefresh);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
-      }
-      if (isValidValue(fields()[4], other.lastRefresh)) {
-        this.lastRefresh = data().deepCopy(fields()[4].schema(), other.lastRefresh);
-        fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
     }
 
@@ -329,21 +301,17 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.userId)) {
-        this.userId = data().deepCopy(fields()[1].schema(), other.userId);
+      if (isValidValue(fields()[1], other.bookmakerIdentifier)) {
+        this.bookmakerIdentifier = data().deepCopy(fields()[1].schema(), other.bookmakerIdentifier);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.bookmakerIdentifier)) {
-        this.bookmakerIdentifier = data().deepCopy(fields()[2].schema(), other.bookmakerIdentifier);
+      if (isValidValue(fields()[2], other.authenticationInputData)) {
+        this.authenticationInputData = data().deepCopy(fields()[2].schema(), other.authenticationInputData);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.authenticationInputData)) {
-        this.authenticationInputData = data().deepCopy(fields()[3].schema(), other.authenticationInputData);
+      if (isValidValue(fields()[3], other.lastRefresh)) {
+        this.lastRefresh = data().deepCopy(fields()[3].schema(), other.lastRefresh);
         fieldSetFlags()[3] = true;
-      }
-      if (isValidValue(fields()[4], other.lastRefresh)) {
-        this.lastRefresh = data().deepCopy(fields()[4].schema(), other.lastRefresh);
-        fieldSetFlags()[4] = true;
       }
     }
 
@@ -388,46 +356,6 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
     }
 
     /**
-      * Gets the value of the 'userId' field.
-      * @return The value.
-      */
-    public java.util.UUID getUserId() {
-      return userId;
-    }
-
-
-    /**
-      * Sets the value of the 'userId' field.
-      * @param value The value of 'userId'.
-      * @return This builder.
-      */
-    public pl.betka.infrastructure.kafka.model.avro.AuthenticationRequestAvroModel.Builder setUserId(java.util.UUID value) {
-      validate(fields()[1], value);
-      this.userId = value;
-      fieldSetFlags()[1] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'userId' field has been set.
-      * @return True if the 'userId' field has been set, false otherwise.
-      */
-    public boolean hasUserId() {
-      return fieldSetFlags()[1];
-    }
-
-
-    /**
-      * Clears the value of the 'userId' field.
-      * @return This builder.
-      */
-    public pl.betka.infrastructure.kafka.model.avro.AuthenticationRequestAvroModel.Builder clearUserId() {
-      userId = null;
-      fieldSetFlags()[1] = false;
-      return this;
-    }
-
-    /**
       * Gets the value of the 'bookmakerIdentifier' field.
       * @return The value.
       */
@@ -442,9 +370,9 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
       * @return This builder.
       */
     public pl.betka.infrastructure.kafka.model.avro.AuthenticationRequestAvroModel.Builder setBookmakerIdentifier(java.lang.String value) {
-      validate(fields()[2], value);
+      validate(fields()[1], value);
       this.bookmakerIdentifier = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[1] = true;
       return this;
     }
 
@@ -453,7 +381,7 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
       * @return True if the 'bookmakerIdentifier' field has been set, false otherwise.
       */
     public boolean hasBookmakerIdentifier() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[1];
     }
 
 
@@ -463,7 +391,7 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
       */
     public pl.betka.infrastructure.kafka.model.avro.AuthenticationRequestAvroModel.Builder clearBookmakerIdentifier() {
       bookmakerIdentifier = null;
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
@@ -482,9 +410,9 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
       * @return This builder.
       */
     public pl.betka.infrastructure.kafka.model.avro.AuthenticationRequestAvroModel.Builder setAuthenticationInputData(java.lang.String value) {
-      validate(fields()[3], value);
+      validate(fields()[2], value);
       this.authenticationInputData = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -493,7 +421,7 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
       * @return True if the 'authenticationInputData' field has been set, false otherwise.
       */
     public boolean hasAuthenticationInputData() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[2];
     }
 
 
@@ -503,7 +431,7 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
       */
     public pl.betka.infrastructure.kafka.model.avro.AuthenticationRequestAvroModel.Builder clearAuthenticationInputData() {
       authenticationInputData = null;
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -522,9 +450,9 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
       * @return This builder.
       */
     public pl.betka.infrastructure.kafka.model.avro.AuthenticationRequestAvroModel.Builder setLastRefresh(java.time.LocalDate value) {
-      validate(fields()[4], value);
+      validate(fields()[3], value);
       this.lastRefresh = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -533,7 +461,7 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
       * @return True if the 'lastRefresh' field has been set, false otherwise.
       */
     public boolean hasLastRefresh() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[3];
     }
 
 
@@ -542,7 +470,7 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
       * @return This builder.
       */
     public pl.betka.infrastructure.kafka.model.avro.AuthenticationRequestAvroModel.Builder clearLastRefresh() {
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -552,10 +480,9 @@ public class AuthenticationRequestAvroModel extends org.apache.avro.specific.Spe
       try {
         AuthenticationRequestAvroModel record = new AuthenticationRequestAvroModel();
         record.id = fieldSetFlags()[0] ? this.id : (java.util.UUID) defaultValue(fields()[0]);
-        record.userId = fieldSetFlags()[1] ? this.userId : (java.util.UUID) defaultValue(fields()[1]);
-        record.bookmakerIdentifier = fieldSetFlags()[2] ? this.bookmakerIdentifier : (java.lang.String) defaultValue(fields()[2]);
-        record.authenticationInputData = fieldSetFlags()[3] ? this.authenticationInputData : (java.lang.String) defaultValue(fields()[3]);
-        record.lastRefresh = fieldSetFlags()[4] ? this.lastRefresh : (java.time.LocalDate) defaultValue(fields()[4]);
+        record.bookmakerIdentifier = fieldSetFlags()[1] ? this.bookmakerIdentifier : (java.lang.String) defaultValue(fields()[1]);
+        record.authenticationInputData = fieldSetFlags()[2] ? this.authenticationInputData : (java.lang.String) defaultValue(fields()[2]);
+        record.lastRefresh = fieldSetFlags()[3] ? this.lastRefresh : (java.time.LocalDate) defaultValue(fields()[3]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;

@@ -33,6 +33,13 @@ dependencies {
 	testImplementation 'com.github.tomakehurst:wiremock:2.27.2'
 	testImplementation 'org.springframework.cloud:spring-cloud-contract-maven-plugin:3.1.5'
 }
+bootJar {
+	enabled = false
+}
+
+jar {
+	enabled = true
+}
 
 test {
 	useJUnitPlatform()
