@@ -7,6 +7,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.stereotype.Component;
 import pl.betka.connectors.authentication.service.domain.dto.AuthenticationRequest;
 import pl.betka.connectors.authentication.service.adapters.messaging.mapper.AuthenticationDataMapper;
 import pl.betka.connectors.authentication.service.ports.input.message.listener.AuthenticationRequestMessageProcessor;
@@ -15,6 +16,7 @@ import pl.betka.infrastructure.kafka.model.avro.AuthenticationRequestAvroModel;
 
 @Slf4j
 @RequiredArgsConstructor
+@Component
 public class AuthenticationKafkaRequestListener
     implements KafkaConsumer<AuthenticationRequestAvroModel> {
 
