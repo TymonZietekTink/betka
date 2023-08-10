@@ -1,5 +1,6 @@
-package pl.betka.connectors.authentication.service.common.dto;
+package pl.betka.connectors.authentication.service.domain.dto;
 
+import java.time.LocalDate;
 import java.util.UUID;
 import lombok.Builder;
 import lombok.Getter;
@@ -8,7 +9,7 @@ import lombok.Getter;
 @Getter
 public class AuthenticationRequest {
   private UUID id;
-  private UUID userId;
   private String connectorIdentifier;
   private String authenticationInputData;
+  private LocalDate lastRefreshDate;
 }

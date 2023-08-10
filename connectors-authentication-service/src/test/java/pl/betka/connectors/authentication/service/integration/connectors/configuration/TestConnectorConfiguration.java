@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.integration.configuration;
+package pl.betka.connectors.authentication.service.integration.connectors.configuration;
 
 import com.github.tomakehurst.wiremock.http.HttpClientFactory;
 import org.apache.hc.client5.http.classic.HttpClient;

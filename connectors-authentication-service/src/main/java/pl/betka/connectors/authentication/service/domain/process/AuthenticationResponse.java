@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.common.domain;
+package pl.betka.connectors.authentication.service.domain.process;
 
 import java.util.List;
 import lombok.Builder;
@@ -11,5 +11,5 @@ import pl.betka.domain.AuthenticationStatus;
 public class AuthenticationResponse {
   private UserInfo authData;
   private AuthenticationStatus authenticationStatus;
-  private List<String> messages;
+  private List<String> failureMessages;
 }
