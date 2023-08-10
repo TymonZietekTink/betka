@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.common.domain.event;
+package pl.betka.connectors.authentication.service.domain.event;
 
 public class AuthenticationCompletedEvent extends AuthenticationEvent{
 

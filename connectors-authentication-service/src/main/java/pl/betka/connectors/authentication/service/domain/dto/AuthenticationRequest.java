@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.common.dto;
+package pl.betka.connectors.authentication.service.domain.dto;
 
 import java.util.UUID;
 import lombok.Builder;

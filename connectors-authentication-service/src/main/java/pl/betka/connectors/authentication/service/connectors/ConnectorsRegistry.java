@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import pl.betka.connectors.authentication.service.common.process.AuthenticatorService;
+import pl.betka.connectors.authentication.service.process.AuthenticatorService;
 
 public class ConnectorsRegistry {
   private final Map<String, AuthenticatorService> connectorsRegistry;

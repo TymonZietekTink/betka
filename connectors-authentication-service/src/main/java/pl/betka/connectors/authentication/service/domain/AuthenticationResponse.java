@@ -1,4 +1,4 @@
-package pl.betka.connectors.authentication.service.common.domain;
+package pl.betka.connectors.authentication.service.domain;
 
 import java.util.List;
 import lombok.Builder;

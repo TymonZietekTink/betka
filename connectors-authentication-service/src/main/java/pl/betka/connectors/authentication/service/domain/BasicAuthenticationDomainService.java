@@ -1,8 +1,8 @@
-package pl.betka.connectors.authentication.service.common.domain;
+package pl.betka.connectors.authentication.service.domain;
 
 import lombok.RequiredArgsConstructor;
-import pl.betka.connectors.authentication.service.common.domain.event.AuthenticationEvent;
-import pl.betka.connectors.authentication.service.common.process.AuthenticatorService;
+import pl.betka.connectors.authentication.service.domain.event.AuthenticationEvent;
+import pl.betka.connectors.authentication.service.process.AuthenticatorService;
 import pl.betka.connectors.authentication.service.connectors.ConnectorsRegistry;
 
 @RequiredArgsConstructor
