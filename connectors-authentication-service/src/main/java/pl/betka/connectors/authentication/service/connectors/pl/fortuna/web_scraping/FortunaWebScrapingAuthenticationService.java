@@ -12,7 +12,7 @@ import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
-import pl.betka.connectors.authentication.service.domain.AuthenticationResponse;
+import pl.betka.connectors.authentication.service.domain.AuthenticationResult;
 import pl.betka.connectors.authentication.service.exceptions.AuthenticationException;
 import pl.betka.connectors.authentication.service.process.AuthenticatorService;
 import pl.betka.connectors_configuration.UserInfo;
@@ -25,7 +25,7 @@ public class FortunaWebScrapingAuthenticationService implements AuthenticatorSer
   private FortunaUserInfo authData;
 
   @Override
-  public AuthenticationResponse authenticate(UserInfo authenticationData) {
+  public AuthenticationResult authenticate(UserInfo authenticationData) {
     authData = (FortunaUserInfo) authenticationData;
     Cookie authTokenWebCookie;
     try (Playwright playwright = Playwright.create()) {
@@ -37,7 +37,7 @@ public class FortunaWebScrapingAuthenticationService implements AuthenticatorSer
     }
     var cookie = convertCookie(authTokenWebCookie);
     authData.setToken(cookie);
-    return AuthenticationResponse.builder()
+    return AuthenticationResult.builder()
         .authenticationStatus(AuthenticationStatus.AUTHENTICATED)
         .authData(authData)
         .build();

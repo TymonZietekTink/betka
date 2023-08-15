@@ -10,7 +10,7 @@ import org.apache.hc.client5.http.impl.classic.BasicHttpClientResponseHandler;
 import org.apache.hc.core5.http.ClassicHttpRequest;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.springframework.stereotype.Component;
-import pl.betka.connectors.authentication.service.domain.AuthenticationResponse;
+import pl.betka.connectors.authentication.service.domain.AuthenticationResult;
 import pl.betka.connectors.authentication.service.exceptions.AuthenticationException;
 import pl.betka.connectors.authentication.service.process.AuthenticatorService;
 import pl.betka.connectors.authentication.service.connectors.pl.betclic.common.BetclicConstants;
@@ -41,7 +41,7 @@ public class BetclicHttpAuthenticationService implements AuthenticatorService {
 
   @SneakyThrows
   @Override
-  public AuthenticationResponse authenticate(UserInfo authenticationData) {
+  public AuthenticationResult authenticate(UserInfo authenticationData) {
     authData = (BetclicUserInfo) authenticationData;
     if (authData.getFingerprint() == null) {
       authData.setFingerprint(randomValuesProvider.generateUUID().toString());
@@ -55,7 +55,7 @@ public class BetclicHttpAuthenticationService implements AuthenticatorService {
       throw new AuthenticationException("Login is not validated");
     }
     authData.setToken(objectMapper.writer().writeValueAsString(loginResponse.getToken()));
-    return AuthenticationResponse.builder()
+    return AuthenticationResult.builder()
         .authenticationStatus(AuthenticationStatus.AUTHENTICATED)
         .authData(authData)
         .build();
@@ -94,6 +94,10 @@ public class BetclicHttpAuthenticationService implements AuthenticatorService {
     httpPost.setHeader("Content-Type", "application/json");
     httpPost.setHeader("User-Agent", BetclicConstants.USER_AGENT);
     httpPost.setHeader("Accept", "*/*");
+    httpPost.setHeader(
+        "X-Client",
+        "\n"
+            + "{\"auth\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJHbG9iYWwuTW9iaWxlLkFwaS5BdXRoLkFwaS5TaGEyNTZBbGdvcml0aG0ifQ.IntcdTAwMjJJcFx1MDAyMjpcdTAwMjI4OS42NC44OS4yMDNcdTAwMjIsXHUwMDIyU2Vzc2lvblx1MDAyMjpudWxsLFx1MDAyMlVzZXJJZFx1MDAyMjowLFx1MDAyMkNvdW50cnlDb2RlXHUwMDIyOm51bGwsXHUwMDIyTGFuZ3VhZ2VDb2RlXHUwMDIyOlx1MDAyMnBhXHUwMDIyLFx1MDAyMkN1cnJlbmN5Q29kZVx1MDAyMjpudWxsLFx1MDAyMklzQWRtaW5cdTAwMjI6ZmFsc2UsXHUwMDIySXNMb2dnZWRGcm9tQm9cdTAwMjI6ZmFsc2UsXHUwMDIySXNMYXVuY2hlclx1MDAyMjpmYWxzZSxcdTAwMjJSZWd1bGF0b3JJZFx1MDAyMjo3LFx1MDAyMk5vdEJlZm9yZVx1MDAyMjpcdTAwMjIyMDIzLTA4LTEzVDE3OjE1OjE3LjIyNDk2OTJaXHUwMDIyLFx1MDAyMkV4cGlyYXRpb25UaW1lXHUwMDIyOlx1MDAyMjIwMjMtMDgtMTNUMTk6MTc6MTcuMjI1MDAyNFpcdTAwMjJ9Ig.2OyHrXoWEN9CNaKqKb7RQcDCselhCNtBF5miHYZTzpo\",\"context\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJHbG9iYWwuTW9iaWxlLkFwaS5BdXRoLkFwaS5TaGEyNTZBbGdvcml0aG0ifQ.IntcdTAwMjJMZWdpc2xhdGlvblx1MDAyMjpcdTAwMjJQbFx1MDAyMixcdTAwMjJTaXRlXHUwMDIyOlx1MDAyMlBMUEFcdTAwMjIsXHUwMDIyTGFuZ3VhZ2VcdTAwMjI6XHUwMDIycGFcdTAwMjIsXHUwMDIyQ2hhbm5lbElkXHUwMDIyOlx1MDAyMkJldGNsaWNQbFx1MDAyMixcdTAwMjJVbml2ZXJzZVx1MDAyMjpcdTAwMjJzcG9ydHNcdTAwMjIsXHUwMDIyTm90QmVmb3JlXHUwMDIyOlx1MDAyMjIwMjMtMDgtMTNUMTc6MTU6MTcuMjI0OTY5MlpcdTAwMjIsXHUwMDIyRXhwaXJhdGlvblRpbWVcdTAwMjI6XHUwMDIyMjAyMy0wOC0xM1QxOToxNzoxNy4yMjUwOTUyWlx1MDAyMn0i.66pNEjspwRRZdmNfsSe2JNHSt9LbbWWBaBqdEasubvI\",\"expiresIn\":7200016}");
     httpPost.setEntity(new StringEntity(body));
     return httpPost;
   }

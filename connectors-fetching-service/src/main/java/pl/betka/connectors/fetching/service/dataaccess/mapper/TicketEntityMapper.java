@@ -1,5 +1,6 @@
 package pl.betka.connectors.fetching.service.dataaccess.mapper;
 
+import java.time.LocalDate;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import pl.betka.connectors.fetching.service.dataaccess.entity.TicketEntity;
 public class TicketEntityMapper {
 
   public static TicketEntity mapToEntity(Ticket ticket, String connectorIdentifier) {
+
     TicketEntity ticketEntity =
         TicketEntity.builder()
             .id(ticket.getId().getValue())

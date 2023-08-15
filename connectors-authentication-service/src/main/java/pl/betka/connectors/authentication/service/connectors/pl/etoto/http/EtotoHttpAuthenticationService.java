@@ -7,7 +7,7 @@ import org.apache.hc.client5.http.classic.HttpClient;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.springframework.stereotype.Component;
-import pl.betka.connectors.authentication.service.domain.AuthenticationResponse;
+import pl.betka.connectors.authentication.service.domain.AuthenticationResult;
 import pl.betka.connectors.authentication.service.process.AuthenticatorService;
 import pl.betka.connectors.authentication.service.connectors.pl.etoto.http.request.LoginRequest;
 import pl.betka.connectors.common.http.StandardResponseHandler;
@@ -24,7 +24,7 @@ public class EtotoHttpAuthenticationService implements AuthenticatorService {
 
   @Override
   @SneakyThrows
-  public AuthenticationResponse authenticate(UserInfo authenticationData) {
+  public AuthenticationResult authenticate(UserInfo authenticationData) {
     authData = (EtotoUserInfo) authenticationData;
     LoginRequest loginRequest = new LoginRequest(authData.getUsername(), authData.getPassword());
     String loginRequestAsString = objectMapper.writer().writeValueAsString(loginRequest);
@@ -35,7 +35,7 @@ public class EtotoHttpAuthenticationService implements AuthenticatorService {
     var loginResponse = httpClient.execute(httpPost, new StandardResponseHandler());
     String sessionId = loginResponse.getHeader("x-odds-session").getValue();
     authData.setSessionId(sessionId);
-    return AuthenticationResponse.builder()
+    return AuthenticationResult.builder()
         .authenticationStatus(AuthenticationStatus.AUTHENTICATED)
         .authData(authData)
         .build();

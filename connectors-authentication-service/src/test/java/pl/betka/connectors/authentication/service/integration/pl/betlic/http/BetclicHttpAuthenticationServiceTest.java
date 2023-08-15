@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import pl.betka.connectors.authentication.service.integration.utils.IntegrationTestBase;
 import pl.betka.connectors.authentication.service.integration.configuration.TestConnectorConfiguration;
-import pl.betka.connectors.authentication.service.domain.AuthenticationResponse;
+import pl.betka.connectors.authentication.service.domain.AuthenticationResult;
 import pl.betka.connectors.authentication.service.connectors.pl.betclic.http.BetclicHttpAuthenticationService;
 import pl.betka.connectors_configuration.pl.betclic.BetclicUserInfo;
 import pl.betka.domain.AuthenticationStatus;
@@ -44,7 +44,7 @@ public class BetclicHttpAuthenticationServiceTest extends IntegrationTestBase {
             .build();
 
     // when
-    AuthenticationResponse result = service.authenticate(data);
+    AuthenticationResult result = service.authenticate(data);
 
     // then
     assertThat(result.getAuthenticationStatus()).isEqualTo(AuthenticationStatus.AUTHENTICATED);
@@ -64,7 +64,7 @@ public class BetclicHttpAuthenticationServiceTest extends IntegrationTestBase {
             .build();
 
     // when
-    AuthenticationResponse result = service.authenticate(data);
+    AuthenticationResult result = service.authenticate(data);
 
     // then
     assertThat(result.getAuthenticationStatus()).isEqualTo(AuthenticationStatus.AUTHENTICATED);

@@ -1,5 +1,6 @@
 package pl.betka.connectors.fetching.service.dataaccess.mapper;
 
+import java.time.LocalDate;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
@@ -28,12 +29,13 @@ public class BetEntityMapper {
             .ticketId(ticketEntity)
             .build();
 
-    Set<ComboSelectionEntity> comboSelections =
-        bet.getComboSelections().stream()
-            .map(combo -> ComboSelectionEntityMapper.mapToEntity(combo, betEntity))
-            .collect(Collectors.toSet());
-    betEntity.setComboSelections(comboSelections);
-
+    if(bet.getComboSelections()!=null){
+      Set<ComboSelectionEntity> comboSelections =
+          bet.getComboSelections().stream()
+              .map(combo -> ComboSelectionEntityMapper.mapToEntity(combo, betEntity))
+              .collect(Collectors.toSet());
+      betEntity.setComboSelections(comboSelections);
+    }
     return betEntity;
   }
 }

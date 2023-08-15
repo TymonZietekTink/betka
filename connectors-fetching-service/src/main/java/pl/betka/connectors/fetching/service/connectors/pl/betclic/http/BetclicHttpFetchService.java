@@ -13,7 +13,7 @@ import org.apache.hc.client5.http.impl.classic.BasicHttpClientResponseHandler;
 import org.apache.hc.core5.http.ClassicHttpRequest;
 import org.springframework.stereotype.Component;
 import pl.betka.connectors.common.utils.RandomValuesProvider;
-import pl.betka.connectors.fetching.service.common.domain.FetchResponse;
+import pl.betka.connectors.fetching.service.common.domain.FetchResult;
 import pl.betka.connectors.fetching.service.common.domain.entity.Ticket;
 import pl.betka.connectors.fetching.service.common.process.FetchTransactionService;
 import pl.betka.connectors.fetching.service.connectors.pl.betclic.common.BetclicConstants;
@@ -39,7 +39,7 @@ public class BetclicHttpFetchService implements FetchTransactionService {
 
   @SneakyThrows
   @Override
-  public FetchResponse fetchTransactions(FetchingInputData fetchingInputData) {
+  public FetchResult fetchTransactions(FetchingInputData fetchingInputData) {
     BetclicFetchingInputData inputData = (BetclicFetchingInputData) fetchingInputData;
     String token = inputData.getToken();
 
@@ -59,7 +59,7 @@ public class BetclicHttpFetchService implements FetchTransactionService {
     }
     BetclicTicketMapper ticketMapper = new BetclicTicketMapper(randomValuesProvider);
     List<Ticket> mappedTickets = ticketMapper.mapToTickets(betclicTickets);
-    return FetchResponse.builder().fetchStatus(FetchStatus.FETCHED).tickets(mappedTickets).build();
+    return FetchResult.builder().fetchStatus(FetchStatus.FETCHED).tickets(mappedTickets).build();
   }
 
   @SneakyThrows

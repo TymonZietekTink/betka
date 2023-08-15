@@ -1,8 +1,8 @@
 server:
-  port: 8182
+  port: 8183
 spring:
   profiles:
-    active: production
+    active: dev
   datasource:
     url: jdbc:postgresql://localhost:5432/betka
     username: postgres
@@ -10,7 +10,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
     show-sql: true
     properties:
       hibernate:

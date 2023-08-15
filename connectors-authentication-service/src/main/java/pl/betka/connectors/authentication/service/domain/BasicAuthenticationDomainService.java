@@ -12,7 +12,7 @@ public class BasicAuthenticationDomainService implements AuthenticationDomainSer
   @Override
   public AuthenticationEvent validateAndInitializeAuthentication(Authentication authentication) {
     AuthenticatorService service = registry.getAuthenticationService(authentication.getBookmakerIdentifier());
-    AuthenticationResponse authResult = service.authenticate(authentication.getUserInfo());
+    AuthenticationResult authResult = service.authenticate(authentication.getUserInfo());
     return null;
   }
 }

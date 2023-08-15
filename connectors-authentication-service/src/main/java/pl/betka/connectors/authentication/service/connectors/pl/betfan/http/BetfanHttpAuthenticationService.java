@@ -12,7 +12,7 @@ import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
-import pl.betka.connectors.authentication.service.domain.AuthenticationResponse;
+import pl.betka.connectors.authentication.service.domain.AuthenticationResult;
 import pl.betka.connectors.authentication.service.exceptions.AuthenticationException;
 import pl.betka.connectors.authentication.service.process.AuthenticatorService;
 import pl.betka.connectors.authentication.service.connectors.pl.betfan.http.request.LoginRequest;
@@ -34,7 +34,7 @@ public class BetfanHttpAuthenticationService implements AuthenticatorService {
 
   @Override
   @SneakyThrows
-  public AuthenticationResponse authenticate(UserInfo userInfo) {
+  public AuthenticationResult authenticate(UserInfo userInfo) {
     authData = (BetfanUserInfo) userInfo;
     var loginResponse = login();
     var sessionIdHeader = loginResponse.getHeader(SESSION_ID_HEADER);
@@ -42,7 +42,7 @@ public class BetfanHttpAuthenticationService implements AuthenticatorService {
       throw new AuthenticationException("No session Id token");
     }
     authData.setToken(sessionIdHeader.getValue());
-    return AuthenticationResponse.builder()
+    return AuthenticationResult.builder()
         .authenticationStatus(AuthenticationStatus.AUTHENTICATED)
         .authData(authData)
         .build();

@@ -8,7 +8,7 @@ import pl.betka.domain.FetchStatus;
 
 @Builder
 @Getter
-public class FetchResponse {
+public class FetchResult {
   private FetchStatus fetchStatus;
   private List<Ticket> tickets;
   private List<String> messages;

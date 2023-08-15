@@ -8,7 +8,7 @@ import pl.betka.domain.AuthenticationStatus;
 
 @Builder
 @Getter
-public class AuthenticationResponse {
+public class AuthenticationResult {
   private UserInfo authData;
   private AuthenticationStatus authenticationStatus;
   private List<String> messages;

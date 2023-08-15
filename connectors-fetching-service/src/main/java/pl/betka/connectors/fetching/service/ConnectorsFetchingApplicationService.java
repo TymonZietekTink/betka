@@ -10,7 +10,7 @@ import pl.betka.connectors.common.configuration.ConnectorsConfiguration;
 @SpringBootApplication
 @EntityScan(basePackages = { "pl.betka.connectors.fetching.service.dataaccess" })
 @EnableJpaRepositories(basePackages = { "pl.betka.connectors.fetching.service.dataaccess" })
-@Import(ConnectorsConfiguration.class)
+@Import({ConnectorsConfiguration.class, ConnectorsFetchingServiceConfiguration.class})
 public class ConnectorsFetchingApplicationService {
   public static void main(String[] args) {
     SpringApplication.run(ConnectorsFetchingApplicationService.class, args);

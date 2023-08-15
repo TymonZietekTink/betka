@@ -21,6 +21,8 @@ dependencies {
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
 	implementation 'org.apache.commons:commons-lang3:3.12.0'
 	implementation(project(":common"))
+	implementation(project(":connectors-authentication-service"))
+	implementation(project(":connectors-fetching-service"))
 	implementation 'org.apache.httpcomponents.client5:httpclient5:5.2.1'
 	implementation 'org.apache.httpcomponents.client5:httpclient5-fluent:5.2.1'
 	implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'

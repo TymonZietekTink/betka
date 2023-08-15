@@ -50,6 +50,7 @@ public class BetEntity {
   @Enumerated(EnumType.STRING)
   private SelectionType selectionType;
 
+  @Enumerated(EnumType.STRING)
   private BetResult betResult;
 
   @OneToMany(mappedBy = "betId", cascade = CascadeType.ALL)
