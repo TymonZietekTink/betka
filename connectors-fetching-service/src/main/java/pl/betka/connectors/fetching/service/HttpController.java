@@ -36,4 +36,10 @@ public class HttpController {
     FetchResult response = service.fetchTransactions(inputData);
     fetchingService.persistTickets(response.getTickets(), fetchRequest.getConnectorIdentifier());
   }
+
+  @SneakyThrows
+  @PostMapping(path = "/raport")
+  public void generateExcel(){
+    fetchingService.generateCsvFiles();
+  }
 }
